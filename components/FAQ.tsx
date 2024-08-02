@@ -98,7 +98,7 @@ const FAQ: React.FC = () => {
             <div className="flex justify-center items-center text-center mt-4 md:mt-12">
                 <button 
                     onClick={handleViewMore} 
-                    className="bg-purple-500 text-white text-md py-2 px-4 rounded focus:outline-none ring-1 flex items-center gap-2"
+                    className="bg-purple-500 text-purple text-md py-2 px-4 rounded focus:outline-none flex items-center gap-2"
                 >
                     {visibleItems < faqItems.length ? (
                         <>

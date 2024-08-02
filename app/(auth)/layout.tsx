@@ -1,6 +1,5 @@
-// Update code
 import React from 'react';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaBook, FaPenNib, FaUsers, FaHeart, FaHandshake } from 'react-icons/fa';
 import Image from 'next/image';
 import { Spotlight } from './ui/Spotlight';
 import "./auth-styles.css";
@@ -27,23 +26,23 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           />
           <ul className="mt-5 space-y-4">
             <li className="flex items-center py-2 sm:py-4">
-              <FaCheckCircle className="text-gray-100 text-xl sm:text-2xl" />
+              <FaHandshake className="text-gray-100 text-xl sm:text-2xl" />
               <span className="ml-2 sm:ml-5 text-sm sm:text-base">Connect with authors and readers</span>
             </li>
             <li className="flex items-center py-2 sm:py-4">
-              <FaCheckCircle className="text-gray-100 text-xl sm:text-2xl" />
+              <FaBook className="text-gray-100 text-xl sm:text-2xl" />
               <span className="ml-2 sm:ml-5 text-sm sm:text-base">Discover new books and articles</span>
             </li>
             <li className="flex items-center py-2 sm:py-4">
-              <FaCheckCircle className="text-gray-100 text-xl sm:text-2xl" />
+              <FaPenNib className="text-gray-100 text-xl sm:text-2xl" />
               <span className="ml-2 sm:ml-5 text-sm sm:text-base">Share your own stories and ideas</span>
             </li>
             <li className="flex items-center py-2 sm:py-4">
-              <FaCheckCircle className="text-gray-100 text-xl sm:text-2xl" />
+              <FaUsers className="text-gray-100 text-xl sm:text-2xl" />
               <span className="ml-2 sm:ml-5 text-sm sm:text-base">Join a community of book lovers</span>
             </li>
             <li className="flex items-center py-2 sm:py-4">
-              <FaCheckCircle className="text-gray-100 text-xl sm:text-2xl" />
+              <FaHeart className="text-gray-100 text-xl sm:text-2xl" />
               <span className="ml-2 sm:ml-5 text-sm sm:text-base">Get personalized recommendations</span>
             </li>
           </ul>
@@ -57,3 +56,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 };
 
 export default Layout;
+
+
+
+
+
+
+
