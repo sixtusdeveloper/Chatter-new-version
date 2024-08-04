@@ -2,6 +2,9 @@ export interface Author {
     name: string;
     imageUrl: string;
     role: string;
+    date: string;
+    datetime: string;
+    organization: string;  // Add organization here
     href: string;
     fallbackImageUrl: string;
   }
@@ -15,12 +18,21 @@ export interface Author {
     id: number;
     title: string;
     description: string;
+    // organization: string;  This is was causing red underlines in Posts.tsx file
     imageUrl: string;
     fallbackImageUrl: string;
-    datetime: string;
     date: string;
-    category: Category; // Updated to match the correct structure
-    author: Author;
+    datetime: string;
+    category: Category;  // Use the correct Category structure
+    author: Author;      // Use the updated Author structure
     href: string;
+    features: string[];
+    comments: Array<{
+      commenter: {
+        name: string;
+        imageUrl: string;
+      };
+      commentText: string;
+    }>;
   }
   

@@ -131,7 +131,7 @@ export const InfiniteMovingCards = ({
                   {renderStars(item.rating)}
                 </span>
               </div>
-              <span className="relative z-20 text-md md:text-md lg:text-lg leading-[1.6] text-white-100 font-normal">
+              <span className="relative z-20 text-md md:text-md lg:text-md leading-[1.6] text-white-100 font-normal">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">

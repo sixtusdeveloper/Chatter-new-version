@@ -5,8 +5,8 @@ import { Spotlight } from './ui/Spotlight';
 import ImageWithFallback from './ImageWithFallback';
 import { posts } from '@/data';
 import { GoArrowRight } from "react-icons/go";
-import Modal from '@/components/SingleDetailPost';
-import { Post } from '@/types';
+import Modal from '@/components/SingleDetailPost'; // Import the Modal component
+import { Post } from '@/types'; // Import the Post type
 
 const MAX_DESCRIPTION_LENGTH = 100;
 
@@ -52,7 +52,7 @@ const Posts = () => {
             </p>
           </div>
         </div>
-        <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 border-t border-gray-800 py-4 sm:mt-10 md:py-4">
+        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 border-t border-gray-800 py-4 sm:mt-10 md:py-4">
           {posts.map((post: Post) => (
             <article
               key={post.id}
@@ -105,13 +105,20 @@ const Posts = () => {
                     width={40}
                     height={40}
                   />
-                  <div className="text-sm leading-6">
-                    <p className="font-semibold text-gray-200">
+                  <div className="leading-6">
+                    <p className="font-semibold text-sm text-gray-300">
                       <a href={post.author.href} className="hover:text-gray-400">
                         {post.author.name}
                       </a>
                     </p>
-                    <p className="text-gray-500">{post.author.role}</p>
+                    <span className='flex text-center'>
+                      <p className="text-xs text-gray-200 mr-2">{post.author.role}</p>
+                      <p className="text-xs text-gray-300">({post.author.organization})</p>
+                    </span>
+                    <span className='flex text-center'>
+                      <p className="text-xs text-gray-500 mr-2">{post.author.date}</p>
+                      <p className="text-xs text-gray-500">{post.author.datetime}</p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -131,10 +138,15 @@ const Posts = () => {
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
-        post={selectedPost}
+        post={selectedPost || {} as Post} 
       />
     </div>
   );
 };
 
 export default Posts;
+
+
+
+
+

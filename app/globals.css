@@ -130,7 +130,6 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none;  /* Firefox */
 }
 
-
 .no-scrollbar::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -140,3 +139,28 @@ h1, h2, h3, h4, h5, h6 {
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
 }
+
+
+/* Add this CSS to your global styles or the relevant component's CSS file */
+/* .principal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 60; 
+  background-color: rgba(0, 0, 0, 0.8); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 70; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+
+
