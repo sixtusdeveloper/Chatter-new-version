@@ -27,12 +27,13 @@ export interface Author {
     author: Author;      // Use the updated Author structure
     href: string;
     features: string[];
-    comments: Array<{
-      commenter: {
-        name: string;
-        imageUrl: string;
-      };
-      commentText: string;
-    }>;
+    // comments: Array<{
+    //   commenter: {
+    //     name: string;
+    //     imageUrl: string;
+    //   };
+    //   commentText: string;
+    // }>;
+
   }
   

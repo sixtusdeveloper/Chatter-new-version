@@ -79,6 +79,7 @@ export const posts = [
       fallbackImageUrl: "/socials01.jpg",
     },
     features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+
   },
   {
     id: 3,
@@ -101,6 +102,7 @@ export const posts = [
       fallbackImageUrl: "/socials03.jpg",
     },
     features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+    
   },
 ];
 export const testimonials = [
