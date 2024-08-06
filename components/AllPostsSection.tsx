@@ -1,21 +1,37 @@
 'use client';
 
-import React from "react";
+import React, { useState } from "react";
 import { Spotlight } from './ui/Spotlight';
 import ImageWithFallback from './ImageWithFallback';
-import { posts } from '@/data';
-import { GoArrowRight } from "react-icons/go";
+import { posts as allPosts } from '@/data'; // Renamed for clarity
+import { GoArrowDown, GoArrowRight, GoArrowUp } from "react-icons/go"; // Import up and down arrow icons
 import { Post } from '@/types'; // Import the Post type
 import Link from "next/link";
 
 const MAX_DESCRIPTION_LENGTH = 100;
+const INITIAL_POST_COUNT = 6; // Number of posts to show initially
 
 const truncateDescription = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
 };
 
-const Posts = () => {
+const AllPostsSection = () => {
+  const [visiblePostCount, setVisiblePostCount] = useState(INITIAL_POST_COUNT);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Handle the "View More" and "View Less" toggle
+  const handleTogglePosts = () => {
+    if (isExpanded) {
+      setVisiblePostCount(INITIAL_POST_COUNT);
+    } else {
+      setVisiblePostCount(allPosts.length);
+    }
+    setIsExpanded(!isExpanded);
+  };
+
+  const visiblePosts = allPosts.slice(0, visiblePostCount);
+
   return (
     <div className="relative pb-24 md:pt-12" id="Posts">
       <Spotlight className="-top-40 -right-10 md:-right-32 md:-top-20 h-screen" fill="white" />
@@ -29,8 +45,8 @@ const Posts = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-6">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
-            <h2 className="text-[2.7rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
-              From <span className="text-purple">Our Authors</span>
+            <h2 className="text-[2.5rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
+              All<span className="text-purple">&nbsp;Posts</span>
             </h2>
             <p className="mt-2 text-md leading-8 text-white">
               Dive into a wealth of knowledge with articles crafted by our talented authors.
@@ -40,7 +56,7 @@ const Posts = () => {
           </div>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 border-t border-gray-800 py-4 sm:mt-10 md:py-4">
-          {posts.map((post: Post) => (
+          {visiblePosts.map((post: Post) => (
             <article
               key={post.id}
               className="bg-transparent rounded-lg shadow-lg p-2 overflow-hidden flex flex-col post-card"
@@ -58,22 +74,22 @@ const Posts = () => {
                   <time dateTime={post.datetime} className="text-gray-200">
                     {post.date}
                   </time>
-                  <a
+                  <Link
                     href={post.category.href}
                     className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
                   >
                     {post.category.title}
-                  </a>
+                  </Link>
                 </div>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
-                    <a href={post.href} className="hover:text-gray-400">
-                      {post.title}
-                    </a>
+                    <Link href={`/posts/${post.id}`} legacyBehavior>
+                      <a className="hover:text-gray-400">{post.title}</a>
+                    </Link>
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-gray-300">
                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-                    <Link href={`/single-post?id=${post.id}`} legacyBehavior>
+                    <Link href={`/posts/${post.id}`} legacyBehavior>
                       <a className="text-purple hover:text-purple-600 inline-flex items-center">
                         Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
                       </a>
@@ -93,9 +109,9 @@ const Posts = () => {
                   />
                   <div className="leading-6">
                     <p className="font-semibold text-sm text-gray-300">
-                      <a href={post.author.href} className="hover:text-gray-400">
+                      <Link href={post.author.href} className="hover:text-gray-400">
                         {post.author.name}
-                      </a>
+                      </Link>
                     </p>
                     <span className='flex text-center'>
                       <p className="text-xs text-gray-200 mr-2">{post.author.role}</p>
@@ -112,20 +128,32 @@ const Posts = () => {
           ))}
         </div>
 
-        {/* View more button */}
+        {/* View more/less button */}
         <div className="flex md:w-full relative flex-col justify-center items-center mt-4 md:mt-12">
-          <Link href="/blog" legacyBehavior>
-            <a rel="noopener noreferrer" className="bg-purple-500 text-purple text-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-purple-600">
-              View More <GoArrowRight className="text-purple forced-colors:purple text-lg" />
-            </a>
-          </Link>
+          <button 
+            onClick={handleTogglePosts}
+            className="bg-purple-500 font-bold text-purple text-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-purple-600 tracking-wider"
+          >
+            {isExpanded ? (
+              <>
+                View Less <GoArrowUp className="text-purple font-bold text-lg" />
+              </>
+            ) : (
+              <>
+                View More <GoArrowDown className="text-purple text-lg" />
+              </>
+            )}
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Posts;
+export default AllPostsSection;
+
+
+
 
 
 
@@ -133,12 +161,11 @@ export default Posts;
 
 // 'use client';
 
-// import React, { useState } from "react";
+// import React from "react";
 // import { Spotlight } from './ui/Spotlight';
 // import ImageWithFallback from './ImageWithFallback';
 // import { posts } from '@/data';
 // import { GoArrowRight } from "react-icons/go";
-// import Modal from '@/components/SingleDetailPost'; // Import the Modal component
 // import { Post } from '@/types'; // Import the Post type
 // import Link from "next/link";
 
@@ -149,20 +176,7 @@ export default Posts;
 //   return `${text.slice(0, maxLength)}...`;
 // };
 
-// const Posts = () => {
-//   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const openModal = (post: Post) => {
-//     setSelectedPost(post);
-//     setIsModalOpen(true);
-//   };
-
-//   const closeModal = () => {
-//     setIsModalOpen(false);
-//     setSelectedPost(null);
-//   };
-
+// const AllPostsSection = () => {
 //   return (
 //     <div className="relative pb-24 md:pt-12" id="Posts">
 //       <Spotlight className="-top-40 -right-10 md:-right-32 md:-top-20 h-screen" fill="white" />
@@ -176,8 +190,8 @@ export default Posts;
 //       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
 //         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-6">
 //           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
-//             <h2 className="text-[2.7rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
-//               From <span className="text-purple">Our Authors</span>
+//             <h2 className="text-[2.5rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
+//               All<span className="text-purple">&nbsp;Posts</span>
 //             </h2>
 //             <p className="mt-2 text-md leading-8 text-white">
 //               Dive into a wealth of knowledge with articles crafted by our talented authors.
@@ -205,27 +219,26 @@ export default Posts;
 //                   <time dateTime={post.datetime} className="text-gray-200">
 //                     {post.date}
 //                   </time>
-//                   <a
+//                   <Link
 //                     href={post.category.href}
 //                     className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
 //                   >
 //                     {post.category.title}
-//                   </a>
+//                   </Link>
 //                 </div>
 //                 <div className="mt-3">
 //                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
-//                     <a href={post.href} className="hover:text-gray-400">
-//                       {post.title}
-//                     </a>
+//                     <Link href={`/posts/${post.id}`} legacyBehavior>
+//                       <a className="hover:text-gray-400">{post.title}</a>
+//                     </Link>
 //                   </h3>
 //                   <p className="mt-2 text-sm leading-6 text-gray-300">
 //                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-//                     <button
-//                       onClick={() => openModal(post)}
-//                       className="text-purple hover:text-purple-600 inline-flex items-center"
-//                     >
-//                       Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
-//                     </button>
+//                     <Link href={`/posts/${post.id}`} legacyBehavior>
+//                       <a className="text-purple hover:text-purple-600 inline-flex items-center">
+//                         Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
+//                       </a>
+//                     </Link>
 //                   </p>
 //                 </div>
 //               </div>
@@ -241,9 +254,9 @@ export default Posts;
 //                   />
 //                   <div className="leading-6">
 //                     <p className="font-semibold text-sm text-gray-300">
-//                       <a href={post.author.href} className="hover:text-gray-400">
+//                       <Link href={post.author.href} className="hover:text-gray-400">
 //                         {post.author.name}
-//                       </a>
+//                       </Link>
 //                     </p>
 //                     <span className='flex text-center'>
 //                       <p className="text-xs text-gray-200 mr-2">{post.author.role}</p>
@@ -262,27 +275,15 @@ export default Posts;
 
 //         {/* View more button */}
 //         <div className="flex md:w-full relative flex-col justify-center items-center mt-4 md:mt-12">
-//           <Link href="/blog" legacyBehavior>
+//           <Link href="/SingleDetailPosts" legacyBehavior>
 //             <a rel="noopener noreferrer" className="bg-purple-500 text-purple text-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-purple-600">
 //               View More <GoArrowRight className="text-purple forced-colors:purple text-lg" />
 //             </a>
 //           </Link>
 //         </div>
 //       </div>
-
-//       {/* Modal Component */}
-//       <Modal
-//         isOpen={isModalOpen}
-//         onClose={closeModal}
-//         post={selectedPost || {} as Post} 
-//       />
 //     </div>
 //   );
 // };
 
-// export default Posts;
-
-
-
-
-
+// export default AllPostsSection;

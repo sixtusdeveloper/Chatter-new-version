@@ -5,6 +5,13 @@ export const navigation = [
     { name: 'Testimonials', href: '#Testimonials' },
     { name: 'FAQ', href: '#FAQ' },
 ];
+
+export const blogNavigation = [
+  { name: 'All Posts', href: '#all-posts' },
+  { name: 'Featured Posts', href: '#featured-posts' },
+  { name: 'Categories', href: '#categories' },
+];
+
 export const features = [
 {
     id: 1,

@@ -1,20 +1,24 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
-import { navigation } from '@/data';
 import { Dialog, DialogPanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs';
 
+interface NavbarProps {
+  LogoImg?: string;
+  title?: string;
+  LogoImgDark?: string;
+  navigation: { name: string; href: string }[];
+}
+
 export default function Navbar({
   LogoImg,
   title,
   LogoImgDark,
-}: {
-  LogoImg?: string;
-  title?: string;
-  LogoImgDark?: string;
-}) {
+  navigation
+}: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -33,31 +37,22 @@ export default function Navbar({
   }, []);
 
   useEffect(() => {
-    const sections = navigation.map(item => document.querySelector(item.href));
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.3
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
+    const handleScroll = () => {
+      for (let item of navigation) {
+        const section = document.querySelector(`#${item.href.substring(1)}`);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+            setActiveSection(item.href.substring(1));
+          }
         }
-      });
-    }, options);
-
-    sections.forEach(section => {
-      if (section) observer.observe(section);
-    });
-
-    return () => {
-      sections.forEach(section => {
-        if (section) observer.unobserve(section);
-      });
+      }
     };
-  }, []);
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navigation]);
 
   const handleClick = (href: string) => {
     setActiveSection(href.substring(1));
@@ -94,7 +89,7 @@ export default function Navbar({
           {navigation.map((item) => (
             <a
               key={item.name}
-              href={item.href}
+              href={`#${item.href.substring(1)}`}
               className={`text-sm font-semibold leading-6 tracking-wider ${activeSection === item.href.substring(1) ? 'text-blue-300' : 'text-blue-100'} hover:text-blue-200`}
               onClick={() => handleClick(item.href)}
             >
@@ -142,7 +137,7 @@ export default function Navbar({
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    href={`#${item.href.substring(1)}`}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black-100 hover:bg-gray-200"
                     onClick={() => handleClick(item.href)}
                   >
@@ -171,9 +166,17 @@ export default function Navbar({
 
 
 
+
+
+
+
+
+
+
+
+
 // 'use client';
-// import React from 'react';
-// import { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 // import { navigation } from '@/data';
 // import { Dialog, DialogPanel } from '@headlessui/react';
 // import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -238,7 +241,7 @@ export default function Navbar({
 //   };
 
 //   return (
-//     <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${scrolling ? 'bg-black-200' : 'bg-transparent'}`}>
+//     <header className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${scrolling ? 'bg-black-200' : 'bg-transparent'}`}>
 //       <nav aria-label="Global" className="flex items-center justify-between p-4 lg:px-8">
 //         <div className="flex lg:flex-1">
 //           <a href="/" className="-m-1.5 p-1.5">
@@ -285,8 +288,8 @@ export default function Navbar({
 //           </SignedIn>
 //         </div>
 //       </nav>
-//       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
-//         <div className="fixed inset-0 z-50" />
+//       <Dialog open={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} className="lg:hidden">
+//         <div className="fixed inset-0 z-40" />
 //         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-blue-100 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
 //           <div className="flex items-center justify-between">
 //             <a href="#" className="-m-1.5 p-1.5">
@@ -317,7 +320,7 @@ export default function Navbar({
 //                   <a
 //                     key={item.name}
 //                     href={item.href}
-//                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black-100 hover:tpurple-8"
+//                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black-100 hover:bg-gray-200"
 //                     onClick={() => handleClick(item.href)}
 //                   >
 //                     {item.name}
@@ -339,6 +342,8 @@ export default function Navbar({
 //     </header>
 //   );
 // }
+
+
 
 
 
