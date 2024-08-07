@@ -33,7 +33,7 @@ const AllPostsSection = () => {
   const visiblePosts = allPosts.slice(0, visiblePostCount);
 
   return (
-    <div className="relative pb-24 md:pt-12" id="Posts">
+    <div className="relative pb-24 md:pt-12" id="all-posts">
       <Spotlight className="-top-40 -right-10 md:-right-32 md:-top-20 h-screen" fill="white" />
       <Spotlight className="top-10 left-full h-[80vh] w-[60vw]" fill="purple" />
       <Spotlight className="top-28 left-80 h-[80vh] w-[60vw]" fill="blue" />
@@ -45,7 +45,7 @@ const AllPostsSection = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-6">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
-            <h2 className="text-[2.5rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
+            <h2 className="text-[2.5rem] font-bold tracking-wide text-white sm:text-[2.7rem]">
               All<span className="text-purple">&nbsp;Posts</span>
             </h2>
             <p className="mt-2 text-md leading-8 text-white">

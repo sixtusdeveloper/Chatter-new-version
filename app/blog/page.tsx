@@ -9,7 +9,6 @@ import SearchFilterSection from '@/components/SearchFilterSection';
 import FeaturedPostsSection from '@/components/FeaturedPostsSection';
 import AllPostsSection from '@/components/AllPostsSection';
 import CategoriesSection from '@/components/CategoriesSection';
-import MorePostsSection from '@/components/MorePostsSection';
 import BlogFooter from "@/components/BlogFooter";
 import withAuth from '@/components/WithAuth';
 
@@ -24,7 +23,6 @@ function Blog() {
           <FeaturedPostsSection />
           <AllPostsSection />
           <CategoriesSection />
-          <MorePostsSection />
           <BlogFooter />
         </div>
       </main>
