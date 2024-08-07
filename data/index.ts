@@ -6,6 +6,11 @@ export const navigation = [
     { name: 'FAQ', href: '#FAQ' },
 ];
 
+export const aboutNavigation = [
+  { name: 'Our Mision', href: '#our-mission' },
+  { name: 'Services', href: '#services' },
+  { name: 'Community', href: '#community' },
+];
 export const blogNavigation = [
   { name: 'All Posts', href: '#all-posts' },
   { name: 'Featured Posts', href: '#featured-posts' },
@@ -14,10 +19,37 @@ export const blogNavigation = [
 
 export const singlePostNavigation = [
   { name: 'Blog Posts', href: '/blog' },
-  { name: 'Create Post', href: '/reg' },
+  { name: 'Create Post', href: '/create-post' },
   { name: 'Authors', href: '/authors' },
   { name: 'Dashboard', href: '/dashboard' },
 ];
+
+export const categories = [
+  { id: 1, name: 'Technology', slug: 'technology' },
+  { id: 2, name: 'Science', slug: 'science' },
+  { id: 3, name: 'Health', slug: 'health' },
+  { id: 4, name: 'Business', slug: 'business' },
+  { id: 5, name: 'Entertainment', slug: 'entertainment' },
+  { id: 6, name: 'Sports', slug: 'sports' },
+  { id: 7, name: 'Education', slug: 'education' },
+  { id: 8, name: 'Travel', slug: 'travel' },
+  { id: 9, name: 'Food', slug: 'food' },
+  { id: 10, name: 'Fashion', slug: 'fashion' },
+  { id: 11, name: 'Finance', slug: 'finance' },
+  { id: 12, name: 'Environment', slug: 'environment' },
+  { id: 13, name: 'Politics', slug: 'politics' },
+  { id: 14, name: 'History', slug: 'history' },
+  { id: 15, name: 'Art', slug: 'art' },
+  { id: 16, name: 'Music', slug: 'music' },
+  { id: 17, name: 'Gaming', slug: 'gaming' },
+  { id: 18, name: 'Literature', slug: 'literature' },
+  { id: 19, name: 'Marketing', slug: 'marketing' },
+  { id: 20, name: 'Writing', slug: 'writing' },
+  { id: 21, name: 'SEO', slug: 'seo' },
+  { id: 22, name: 'Architecture', slug: 'architecture' },
+  { id: 23, name: 'Design', slug: 'design' },
+];
+
 
 export const features = [
 {

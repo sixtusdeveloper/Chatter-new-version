@@ -7,6 +7,7 @@ import { posts } from '@/data';
 import { GoArrowRight } from "react-icons/go";
 import { Post } from '@/types'; // Import the Post type
 import Link from "next/link";
+import { useRouter } from 'next/navigation'; // Update import
 
 const MAX_DESCRIPTION_LENGTH = 100;
 
@@ -16,8 +17,15 @@ const truncateDescription = (text: string, maxLength: number): string => {
 };
 
 const Posts = () => {
+  const router = useRouter();
+
   // Get the first three posts
   const displayedPosts = posts.slice(0, 3);
+
+  const handlePostClick = (postId: number) => {
+    // Use router.push for programmatic navigation
+    router.push(`/single-page/${postId}`);
+  };
 
   return (
     <div className="relative pb-24 md:pt-12" id="Posts">
@@ -70,17 +78,21 @@ const Posts = () => {
                 </div>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
-                    <a href={post.href} className="hover:text-gray-400">
+                    <a
+                      onClick={() => handlePostClick(post.id)}
+                      className="hover:text-gray-400 cursor-pointer"
+                    >
                       {post.title}
                     </a>
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-gray-300">
                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-                    <Link href={`/single-post?id=${post.id}`} legacyBehavior>
-                      <a className="text-purple hover:text-purple-600 inline-flex items-center">
-                        Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
-                      </a>
-                    </Link>
+                    <a
+                      onClick={() => handlePostClick(post.id)}
+                      className="text-purple hover:text-purple-600 inline-flex items-center cursor-pointer"
+                    >
+                      Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
+                    </a>
                   </p>
                 </div>
               </div>
@@ -136,6 +148,10 @@ export default Posts;
 
 
 
+
+
+
+
 // 'use client';
 
 // import React from "react";
@@ -145,6 +161,7 @@ export default Posts;
 // import { GoArrowRight } from "react-icons/go";
 // import { Post } from '@/types'; // Import the Post type
 // import Link from "next/link";
+// import { useRouter } from 'next/navigation'; // Update import
 
 // const MAX_DESCRIPTION_LENGTH = 100;
 
@@ -154,6 +171,16 @@ export default Posts;
 // };
 
 // const Posts = () => {
+//   const router = useRouter();
+
+//   // Get the first three posts
+//   const displayedPosts = posts.slice(0, 3);
+
+//   const handlePostClick = (postId: number) => {
+//     // Use router.push for programmatic navigation
+//     router.push(`/single-post?id=${postId}`);
+//   };
+
 //   return (
 //     <div className="relative pb-24 md:pt-12" id="Posts">
 //       <Spotlight className="-top-40 -right-10 md:-right-32 md:-top-20 h-screen" fill="white" />
@@ -178,7 +205,7 @@ export default Posts;
 //           </div>
 //         </div>
 //         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 border-t border-gray-800 py-4 sm:mt-10 md:py-4">
-//           {posts.map((post: Post) => (
+//           {displayedPosts.map((post: Post) => (
 //             <article
 //               key={post.id}
 //               className="bg-transparent rounded-lg shadow-lg p-2 overflow-hidden flex flex-col post-card"
@@ -205,17 +232,21 @@ export default Posts;
 //                 </div>
 //                 <div className="mt-3">
 //                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
-//                     <a href={post.href} className="hover:text-gray-400">
+//                     <a
+//                       onClick={() => handlePostClick(post.id)}
+//                       className="hover:text-gray-400 cursor-pointer"
+//                     >
 //                       {post.title}
 //                     </a>
 //                   </h3>
 //                   <p className="mt-2 text-sm leading-6 text-gray-300">
 //                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-//                     <Link href={`/single-post?id=${post.id}`} legacyBehavior>
-//                       <a className="text-purple hover:text-purple-600 inline-flex items-center">
-//                         Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
-//                       </a>
-//                     </Link>
+//                     <a
+//                       onClick={() => handlePostClick(post.id)}
+//                       className="text-purple hover:text-purple-600 inline-flex items-center cursor-pointer"
+//                     >
+//                       Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
+//                     </a>
 //                   </p>
 //                 </div>
 //               </div>
@@ -264,6 +295,21 @@ export default Posts;
 // };
 
 // export default Posts;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -271,14 +317,14 @@ export default Posts;
 
 // 'use client';
 
-// import React, { useState } from "react";
+// import React from "react";
 // import { Spotlight } from './ui/Spotlight';
 // import ImageWithFallback from './ImageWithFallback';
 // import { posts } from '@/data';
 // import { GoArrowRight } from "react-icons/go";
-// import Modal from '@/components/SingleDetailPost'; // Import the Modal component
 // import { Post } from '@/types'; // Import the Post type
 // import Link from "next/link";
+// import { useRouter } from 'next/router';
 
 // const MAX_DESCRIPTION_LENGTH = 100;
 
@@ -288,17 +334,13 @@ export default Posts;
 // };
 
 // const Posts = () => {
-//   const [selectedPost, setSelectedPost] = useState<Post | null>(null);
-//   const [isModalOpen, setIsModalOpen] = useState(false);
+//   const router = useRouter();
 
-//   const openModal = (post: Post) => {
-//     setSelectedPost(post);
-//     setIsModalOpen(true);
-//   };
+//   // Get the first three posts
+//   const displayedPosts = posts.slice(0, 3);
 
-//   const closeModal = () => {
-//     setIsModalOpen(false);
-//     setSelectedPost(null);
+//   const handlePostClick = (postId: number) => {
+//     router.push(`/single-post?id=${postId}`);
 //   };
 
 //   return (
@@ -325,7 +367,7 @@ export default Posts;
 //           </div>
 //         </div>
 //         <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 border-t border-gray-800 py-4 sm:mt-10 md:py-4">
-//           {posts.map((post: Post) => (
+//           {displayedPosts.map((post: Post) => (
 //             <article
 //               key={post.id}
 //               className="bg-transparent rounded-lg shadow-lg p-2 overflow-hidden flex flex-col post-card"
@@ -352,18 +394,21 @@ export default Posts;
 //                 </div>
 //                 <div className="mt-3">
 //                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
-//                     <a href={post.href} className="hover:text-gray-400">
+//                     <a
+//                       onClick={() => handlePostClick(post.id)}
+//                       className="hover:text-gray-400 cursor-pointer"
+//                     >
 //                       {post.title}
 //                     </a>
 //                   </h3>
 //                   <p className="mt-2 text-sm leading-6 text-gray-300">
 //                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-//                     <button
-//                       onClick={() => openModal(post)}
-//                       className="text-purple hover:text-purple-600 inline-flex items-center"
+//                     <a
+//                       onClick={() => handlePostClick(post.id)}
+//                       className="text-purple hover:text-purple-600 inline-flex items-center cursor-pointer"
 //                     >
 //                       Read more <GoArrowRight className="text-purple forced-colors:purple text-lg" />
-//                     </button>
+//                     </a>
 //                   </p>
 //                 </div>
 //               </div>
@@ -407,18 +452,12 @@ export default Posts;
 //           </Link>
 //         </div>
 //       </div>
-
-//       {/* Modal Component */}
-//       <Modal
-//         isOpen={isModalOpen}
-//         onClose={closeModal}
-//         post={selectedPost || {} as Post} 
-//       />
 //     </div>
 //   );
 // };
 
 // export default Posts;
+
 
 
 

@@ -32,17 +32,17 @@ const Hero = () => {
             )}
           </h3>
 
-          <h1 className='text-[2.5rem] font-bold tracking-wider text-center text-white sm:text-[2.8rem]'>
-            Welcome to Our <span className='text-purple'>Blog</span>
+          <h1 className='text-[2.5rem] font-bold text-center tracking-wider text-white sm:text-[2.8rem]'>
+            Learn About<span className='text-purple'>&nbsp;Chatter</span>
           </h1>
-          <p className="text-center md:tracking-wider sm:tracking-wider my-4 text-[16px] md:text-[16px] lg:text-[16px] md:mb-8 mb-8 text-gray-300">
-            Discover the latest insights and stories on various topics. Stay updated with our top posts and explore categories that interest you.
+          <p className="text-center text-gray-300 md:tracking-wider leading-8 sm:tracking-wider my-4 text-[16px] md:text-[16px] lg:text-[16px] md:mb-8 mb-8">
+          Chatter is a vibrant platform designed to bring authors, readers, and collaborators together. Our mission is to foster creativity and collaboration through engaging stories, insightful articles, and meaningful interactions. Whether you're an author looking to share your work or a reader seeking fresh perspectives, Chatter is here to connect you with the content and community that inspires you.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
             <Link href="https://chattereditor.vercel.app/" legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
                 <MagicButton 
-                  title="Get Started" 
+                  title="Try our Editor" 
                   otherClasses='text-[1.3rem] flex justify-center items-center text-center'
                 />
               </a>
