@@ -27,7 +27,7 @@ const CategoriesSection = () => {
             </a>
           ))}
         </div>
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-8 md:mt-14">
           <button
             onClick={() => setShowMore(!showMore)}
             className="flex items-center bg-purple-500 text-purple text-md py-2 px-4 rounded hover:bg-purple-600"

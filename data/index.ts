@@ -1,3 +1,6 @@
+import Testimonials from "@/components/Testimonials";
+
+//============================= Home Page Navigation links ============================//
 export const navigation = [
     { name: 'Features', href: '#Features' },
     { name: 'Services', href: '#Services' },
@@ -6,24 +9,30 @@ export const navigation = [
     { name: 'FAQ', href: '#FAQ' },
 ];
 
+// ======================== About Page Navigation links ========================//
 export const aboutNavigation = [
-  { name: 'Our Mision', href: '#our-mission' },
-  { name: 'Services', href: '#services' },
-  { name: 'Community', href: '#community' },
+  { name: 'Home', href: '/' },
+  { name: 'Docs', href: '/docs' },
+  { name: 'Community', href: '/blog' },
 ];
+
+// ============================ Blog Post Navigation links ==========================//
 export const blogNavigation = [
   { name: 'All Posts', href: '#all-posts' },
   { name: 'Featured Posts', href: '#featured-posts' },
   { name: 'Categories', href: '#categories' },
 ];
 
+//======================= Blog Single Post Navigation links ========================//
 export const singlePostNavigation = [
+  { name: 'Home', href: '/' },
   { name: 'Blog Posts', href: '/blog' },
   { name: 'Create Post', href: '/create-post' },
   { name: 'Authors', href: '/authors' },
   { name: 'Dashboard', href: '/dashboard' },
 ];
 
+// =================== Blog Post Category Items ======================= //
 export const categories = [
   { id: 1, name: 'Technology', slug: 'technology' },
   { id: 2, name: 'Science', slug: 'science' },
@@ -50,7 +59,17 @@ export const categories = [
   { id: 23, name: 'Design', slug: 'design' },
 ];
 
+//===========================  Documentation Side-bar links===========================//
+export const sections = [
+  { id: 'introduction', label: 'Introduction' },
+  { id: 'installation', label: 'Installation' },
+  { id: 'getting-started', label: 'Getting Started' },
+  { id: 'features', label: 'Features' },
+  { id: 'api', label: 'API' },
+  { id: 'faq', label: 'FAQ' }
+];
 
+//========================== Features Section Data ==========================//
 export const features = [
 {
     id: 1,
@@ -81,6 +100,8 @@ export const features = [
     thumbnail: "/exp4.svg",
 },
 ];
+
+// ========================== Posts Section Data ==========================//
 export const posts = [
   {
     id: 1,
@@ -427,6 +448,8 @@ export const posts = [
 
   },
 ];
+
+//===============================  Testimonials Section Data ================================//
 export const testimonials = [
   {
     quote: "Our experience with Chatter has been transformative. Sixtus’s platform has significantly streamlined our communication and project management. His prompt responses and the intuitive design of Chatter have truly elevated our team's productivity and collaboration, making it an indispensable tool for us.",
@@ -475,7 +498,27 @@ export const testimonials = [
   },
 ];
 
-
-
-
-
+//===============================  Team Members Section Data from About page  ================================//
+export const teamMembers = [
+  {
+    id: 1,
+    name: 'Sixtus Aondoakaa',
+    role: 'Founder & CEO',
+    description: 'Sixtus has over 8 years of experience in the tech industry. He started Chatter with the vision of creating a platform where people can share their thoughts and collaborate effectively. His leadership and innovative thinking have been pivotal in driving the company towards success.',
+    imageUrl: '/team-member-1.jpg',
+  },
+  {
+    id: 2,
+    name: 'Calvin Benjamin',
+    role: 'Chief Technology Officer',
+    description: 'Calvin is a tech enthusiast with a knack for solving complex problems. She leads the technology team at Chatter, ensuring that the platform is scalable, secure, and user-friendly. Her expertise in software development and her passion for technology make her an invaluable asset to the company.',
+    imageUrl: '/team-member-2.jpg',
+  },
+  {
+    id: 3,
+    name: 'Ade Johnson',
+    role: 'Head of Marketing',
+    description: 'Ade brings a wealth of knowledge in digital marketing and brand management. She is responsible for the marketing strategies that have propelled Chatter into the limelight. Alice’s creativity and strategic thinking help in crafting campaigns that resonate with our audience.',
+    imageUrl: '/team-member-3.jpg',
+  },
+];

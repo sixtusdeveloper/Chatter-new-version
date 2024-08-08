@@ -4,7 +4,7 @@ import MagicButton from './ui/MagicButton';
 import { Spotlight } from './ui/Spotlight';
 import { useUser } from '@clerk/nextjs';
 
-const Hero = () => {
+const AboutIntroduction = () => {
   const { user, isSignedIn } = useUser();
 
   return (
@@ -54,7 +54,7 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default AboutIntroduction;
 
 
 
