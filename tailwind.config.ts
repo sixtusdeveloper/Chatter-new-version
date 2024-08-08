@@ -1,6 +1,7 @@
 // tailwind.config.ts
 import type { Config } from "tailwindcss";
 import { PluginAPI } from "tailwindcss/types/config";
+// import "~@tiptap/starter-kit/dist/tiptap-starter-kit.css";
 const { fontFamily } = require('tailwindcss/defaultTheme');
 const svgToDataUri = require("mini-svg-data-uri");
 const colors = require("tailwindcss/colors");

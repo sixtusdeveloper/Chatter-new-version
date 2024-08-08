@@ -1,5 +1,5 @@
 /* Ensure the sidebar is fixed and the main content is scrollable */
-.documentation-page {
+/* .documentation-page {
   display: flex;
   height: 100vh;
 }
@@ -15,10 +15,6 @@
 
 .sidebar.show {
   display: flex;
-}
-
-.sidebar-header {
-  background: #2d3748;
 }
 
 .sidebar .flex {
@@ -39,10 +35,10 @@
   .sidebar-header button {
     display: none;
   }
-}
+} */
 
 /* Ensure the sidebar takes up half the screen width on mobile */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -60,5 +56,69 @@
 
   .flex-1 {
     margin-left: 0;
+  }
+} */
+
+/* documentation.css */
+/* .documentation-page {
+  display: flex;
+  height: 100vh;
+}
+
+@media (min-width: 1024px) {
+  .documentation-page > .lg\:hidden {
+    display: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .documentation-page > .hidden\:lg {
+    display: none;
+  }
+} */
+
+
+
+
+.documentation-content {
+  max-height: calc(100vh - 64px); /* Adjust the 64px to match the height of your header if needed */
+  overflow-y: auto;
+}
+
+/* documentation.css */
+.documentation-page {
+  display: flex;
+  height: 100vh;
+}
+
+@media (max-width: 1023px) {
+  .documentation-page {
+    padding-top: 4rem; /* Only apply padding on mobile devices */
+  }
+}
+
+.sidebar {
+  display: none;
+}
+
+.sidebar.show {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
+
+.lg\:hidden {
+  display: none;
+}
+
+@media (max-width: 1023px) {
+  .lg\:hidden {
+    display: block;
   }
 }

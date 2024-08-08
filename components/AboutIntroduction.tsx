@@ -39,8 +39,8 @@ const AboutIntroduction = () => {
           Chatter is a vibrant platform designed to bring authors, readers, and collaborators together. Our mission is to foster creativity and collaboration through engaging stories, insightful articles, and meaningful interactions. Whether you're an author looking to share your work or a reader seeking fresh perspectives, Chatter is here to connect you with the content and community that inspires you.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
-            <Link href="https://chattereditor.vercel.app/" legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
+            <Link href="/create-post" legacyBehavior>
+              <a rel="noopener noreferrer">
                 <MagicButton 
                   title="Try our Editor" 
                   otherClasses='text-[1.3rem] flex justify-center items-center text-center'

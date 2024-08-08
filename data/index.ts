@@ -522,3 +522,36 @@ export const teamMembers = [
     imageUrl: '/team-member-3.jpg',
   },
 ];
+
+
+// ======================== Side Bar Navigation Links for DOCUMENTATION ============================//
+export const SidebarNavbarLists = [
+  { name: 'Introduction', href: 'introduction' },
+  { name: 'Getting Started', href: 'getting-started' },
+  { name: 'Features', href: 'features' },
+  { name: 'Best Practices', href: 'best-practices' },
+  { name: 'API Reference', href: 'api-reference' },
+  { name: 'Released Notes', href: 'release-notes' },
+  { name: 'FAQ', href: 'faq' },
+];
+
+
+
+// Import your components
+import DocsIntroduction from "@/data/docsData/DocsIntroduction";
+import DocsGettingStarted from "@/data/docsData/DocsGettingStarted";
+import DocsFeatures from "@/data/docsData/DocsFeatures";
+import DocsReleaseNotes from "@/data/docsData/DocsReleaseNotes";
+import FAQ from "@/data/docsData/DocsFAQ";
+import DocsBestPractices from "@/data/docsData/DocsBestPractices";
+import DocsAPIReference from "@/data/docsData/DocsAPIReference";
+
+export const DocumentationContents = {
+  introduction: DocsIntroduction,
+  gettingStarted: DocsGettingStarted,
+  features: DocsFeatures,
+  releaseNotes: DocsReleaseNotes,
+  bestPractices: DocsBestPractices,
+  api: DocsAPIReference,
+  faq: FAQ,
+};

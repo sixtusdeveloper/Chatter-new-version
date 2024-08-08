@@ -104,7 +104,7 @@ export default function Navbar({
           </SignedOut>
           <SignedIn>
             <div className="flex items-center gap-2">
-              {user && <span className="hidden lg:block text-sm font-semibold text-blue-100">{user.firstName}</span>}
+              {user && <span className="hidden lg:block text-sm font-semibold text-purple">{user.firstName}</span>}
               <UserButton />
             </div>
           </SignedIn>
