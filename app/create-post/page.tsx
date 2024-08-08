@@ -2,7 +2,7 @@ import React from 'react'
 
 const CreatePost = () => {
   return (
-    <div>Create Post</div>
+    <div className='text-center text-xl text-purple'>Create Post</div>
   )
 }
 
