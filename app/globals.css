@@ -90,7 +90,6 @@
   }
 }
 
-
 .post-card {
   transition: transform 0.3s ease;
 }
@@ -141,3 +140,20 @@ h1, h2, h3, h4, h5, h6 {
   scrollbar-width: none; /* Firefox */
 }
 
+
+/* styles/globals.css */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+
+.no-scrollbar-notification::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  height: 0;
+}
+
+.no-scrollbar-notification {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

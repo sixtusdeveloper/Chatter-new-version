@@ -18,7 +18,6 @@ export interface Author {
     id: number;
     title: string;
     description: string;
-    // organization: string;  This is was causing red underlines in Posts.tsx file
     imageUrl: string;
     fallbackImageUrl: string;
     date: string;

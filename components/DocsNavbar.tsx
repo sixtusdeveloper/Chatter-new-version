@@ -73,7 +73,7 @@ const DocsNavbar: React.FC<DocsNavbarProps> = ({ activeSection, onSectionChange 
                             key={item.name}
                             onClick={() => handleClick(item.href)}
                             className={`block w-full text-left px-3 tracking-wide py-2 my-3 rounded-full text-sm font-semibold ${
-                                activeSection === item.href ? 'bg-gray-800 text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white'
+                                activeSection === item.href ? 'bg-gray-800 text-purple' : 'text-gray-300 hover:bg-gray-800 hover:text-white'
                             }`}
                             >
                             {item.name}

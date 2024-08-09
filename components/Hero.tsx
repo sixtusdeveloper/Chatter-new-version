@@ -36,8 +36,8 @@ const Hero = () => {
             Chatter is a dynamic and innovative platform designed to cater to the needs of traditional bookworms and modern content creators alike. By offering a multi-functional space where authors and readers can create, share, and discover rich text-based content.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
-            <Link href="https://chattereditor.vercel.app/" legacyBehavior>
-              <a target="_blank" rel="noopener noreferrer">
+            <Link href="/create-post" legacyBehavior>
+              <a rel="noopener noreferrer">
                 <MagicButton 
                   title="Get Started" 
                   otherClasses='text-[1.3rem] flex justify-center items-center text-center'

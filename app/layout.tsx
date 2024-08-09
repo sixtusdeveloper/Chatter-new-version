@@ -10,7 +10,7 @@ import Head from 'next/head';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chatter Application",
+  title: "Chatter",
   description: "A dynamic and innovative platform designed to cater to the needs of traditional bookworms and modern content creators alike.",
 };
 

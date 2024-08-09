@@ -1,4 +1,5 @@
 import Testimonials from "@/components/Testimonials";
+import { Post } from '@/types';
 
 //============================= Home Page Navigation links ============================//
 export const navigation = [
@@ -173,7 +174,7 @@ export const posts = [
   },
   {
     id: 4,
-    title: "Maximize Your SEO Efforts",
+    title: "How to learn Programming",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -196,7 +197,7 @@ export const posts = [
   },
   {
     id: 5,
-    title: "Maximize Your SEO Efforts",
+    title: "Improve your visibility",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -219,7 +220,7 @@ export const posts = [
   },
   {
     id: 6,
-    title: "Maximize Your SEO Efforts",
+    title: "Improve your online presence",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -242,7 +243,7 @@ export const posts = [
   },
   {
     id: 7,
-    title: "Maximize Your SEO Efforts",
+    title: "Get more organic traffic",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -265,7 +266,7 @@ export const posts = [
   },
   {
     id: 8,
-    title: "Maximize Your SEO Efforts",
+    title: "Enable powerful insights",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -288,7 +289,7 @@ export const posts = [
   },
   {
     id: 10,
-    title: "Maximize Your SEO Efforts",
+    title: "Fast-track your growth",
     href: "/posts/3",
     description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
     date: "August 20th, 2024",
@@ -311,7 +312,7 @@ export const posts = [
   },
   {
     id: 11,
-    title: "Improve Your Website Design",
+    title: "Improve your Software Engineering skills",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -334,7 +335,7 @@ export const posts = [
   },
   {
     id: 12,
-    title: "Improve Your Website Design",
+    title: "Get more financial stability",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -357,7 +358,7 @@ export const posts = [
   },
   {
     id: 13,
-    title: "Improve Your Website Design",
+    title: "Make your day more productive",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -380,7 +381,7 @@ export const posts = [
   },
   {
     id: 14,
-    title: "Improve Your Website Design",
+    title: "Invest your time wisely",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -403,7 +404,7 @@ export const posts = [
   },
   {
     id: 15,
-    title: "Improve Your Website Design",
+    title: "Invest in your personal development",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -426,7 +427,7 @@ export const posts = [
   },
   {
     id: 16,
-    title: "Improve Your Website Design",
+    title: "Craft your future with lastest tech skills",
     href: "/posts/2",
     description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
     date: "August 3rd, 2024",
@@ -448,6 +449,13 @@ export const posts = [
 
   },
 ];
+
+
+export const getPostById = (id: number): Post | undefined => {
+  return posts.find(post => post.id === id);
+};
+
+
 
 //===============================  Testimonials Section Data ================================//
 export const testimonials = [
@@ -536,22 +544,11 @@ export const SidebarNavbarLists = [
 ];
 
 
+// /data/sidebarLinks.ts
 
-// Import your components
-import DocsIntroduction from "@/data/docsData/DocsIntroduction";
-import DocsGettingStarted from "@/data/docsData/DocsGettingStarted";
-import DocsFeatures from "@/data/docsData/DocsFeatures";
-import DocsReleaseNotes from "@/data/docsData/DocsReleaseNotes";
-import FAQ from "@/data/docsData/DocsFAQ";
-import DocsBestPractices from "@/data/docsData/DocsBestPractices";
-import DocsAPIReference from "@/data/docsData/DocsAPIReference";
-
-export const DocumentationContents = {
-  introduction: DocsIntroduction,
-  gettingStarted: DocsGettingStarted,
-  features: DocsFeatures,
-  releaseNotes: DocsReleaseNotes,
-  bestPractices: DocsBestPractices,
-  api: DocsAPIReference,
-  faq: FAQ,
-};
+export const DashboardNavLinks = [
+  { name: 'Users', href: 'users' },
+  { name: 'Posts', href: 'posts' },
+  { name: 'Roles', href: 'roles' },
+  { name: 'Manage Posts', href: 'manage-posts' },
+];
