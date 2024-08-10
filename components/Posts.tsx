@@ -85,7 +85,7 @@ const Posts = () => {
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-gray-300">
                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-                    <Link href={`/single-post?id=${post.id}`} legacyBehavior>
+                    <Link href="/single-post" legacyBehavior>
                       <a
                         className="text-purple hover:text-purple-600 inline-flex items-center cursor-pointer"
                       >

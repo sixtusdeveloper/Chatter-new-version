@@ -1,3 +1,25 @@
+// interface Author {
+//   name: string;
+//   imageUrl: string;
+//   role: string;
+//   organization: string;
+//   date: string;
+//   datetime: string;
+// }
+
+// interface Category {
+//   title: string;
+// }
+
+
+export interface FeaturedPost {
+  title: string;
+  description: string;
+  imageUrl: string;
+  author: Author;
+  category: Category;
+}
+
 export interface Author {
     name: string;
     imageUrl: string;
@@ -22,17 +44,9 @@ export interface Author {
     fallbackImageUrl: string;
     date: string;
     datetime: string;
-    category: Category;  // Use the correct Category structure
-    author: Author;      // Use the updated Author structure
+    category: Category;  
+    author: Author;      
     href: string;
     features: string[];
-    // comments: Array<{
-    //   commenter: {
-    //     name: string;
-    //     imageUrl: string;
-    //   };
-    //   commentText: string;
-    // }>;
-
   }
   

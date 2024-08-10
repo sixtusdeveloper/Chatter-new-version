@@ -31,25 +31,25 @@ const UsersTable = () => {
 
   return (
     <div>
-      {error && <div className="text-red-500">{error}</div>}
+      {error && <div className="text-red-600">{error}</div>}
       <table className="min-w-full bg-black-200 shadow-md rounded-lg overflow-hidden">
-        <thead className="border bg-transparent border-gray-800 text-white">
-          <tr>
-            <th className="py-3 px-6 border-b-2 text-left text-white tracking-wider">First Name</th>
-            <th className="py-3 px-6 border-b-2 text-left text-white tracking-wider">Last Name</th>
-            <th className="py-3 px-6 border-b-2 text-left text-white tracking-wider">Gender</th>
-            <th className="py-3 px-6 border-b-2 text-left text-white tracking-wider">Role</th>
-            <th className="py-3 px-6 border-b-2 text-left text-white tracking-wider">Action</th>
+        <thead className="border md:px-4 bg-transparent border-gray-800 text-white text-md">
+          <tr className=''>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">First Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Gender</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Role</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Action</th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
             <tr key={user.id} className="bg-gray-900 border-b border-text-800">
-              <td className="py-3 px-6 border-b text-white-100 tracking-wider border-gray-800">{user.firstName}</td>
-              <td className="py-3 px-6 border-b text-white-100 tracking-wider border-gray-800">{user.lastName}</td>
-              <td className="py-3 px-6 border-b text-white-100 tracking-wider border-gray-800">{user.gender}</td>
-              <td className="py-3 px-6 border-b text-white-100 tracking-wider border-gray-800">{user.role}</td>
-              <td className="py-3 px-6 border-b text-white-100 tracking-wider border-gray-800">
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-gray-200 tracking-wider">{user.firstName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-gray-200 tracking-wider">{user.lastName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-gray-200 tracking-wider">{user.gender}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-gray-200 tracking-wider">{user.role}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-gray-200 tracking-wider">
                 <button className="bg-blue-600 text-white px-3 py-1 rounded">
                   Manage
                 </button>

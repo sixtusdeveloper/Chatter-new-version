@@ -23,7 +23,7 @@ const DocsNavbar: React.FC<DocsNavbarProps> = ({ activeSection, onSectionChange 
 
   return (
     <header className="lg:hidden z-50 fixed top-0 left-0 w-full">
-        <nav className="flex items-center justify-between p-4 bg-black-200 border-b border-b-gray-700">
+        <nav className="flex items-center justify-between p-4 bg-black-100 border-b border-b-gray-700">
             <a href="/" className="flex items-center">
             <Image
                 alt="Chatter"

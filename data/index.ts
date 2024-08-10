@@ -15,6 +15,7 @@ export const aboutNavigation = [
   { name: 'Home', href: '/' },
   { name: 'Docs', href: '/docs' },
   { name: 'Community', href: '/blog' },
+  { name: 'Dashboard', href: '/admin-dashboard' },
 ];
 
 // ============================ Blog Post Navigation links ==========================//
@@ -27,8 +28,7 @@ export const blogNavigation = [
 //======================= Blog Single Post Navigation links ========================//
 export const singlePostNavigation = [
   { name: 'Home', href: '/' },
-  { name: 'Blog Posts', href: '/blog' },
-  { name: 'Create Post', href: '/create-post' },
+  { name: 'Blog', href: '/blog' },
   { name: 'Authors', href: '/authors' },
   { name: 'Dashboard', href: '/dashboard' },
 ];

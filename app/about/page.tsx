@@ -16,7 +16,7 @@ import AboutFooter from "@/components/BlogFooter";
 
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <SignedIn>

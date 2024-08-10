@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useEffect, useState } from 'react';
 
 interface Author {
@@ -57,32 +58,32 @@ const ManagePostsTable = () => {
 
   return (
     <div>
-      {error && <div className="text-red-500">{error}</div>}
+      {error && <div className="text-red-600 text-md py-2">{error}</div>}
       <table className="min-w-full bg-black-200 shadow-md rounded-lg overflow-hidden">
         <thead className="bg-transparent text-white border border-gray-800">
           <tr>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">First Name</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Last Name</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Number of Posts</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Last Active</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Gender</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Role</th>
-            <th className="border-b-2 py-3 text-left text-white text-md font-semibold tracking-wider px-6 ">Actions</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">First Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Number of Posts</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Active</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Gender</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Role</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Actions</th>
           </tr>
         </thead>
         <tbody>
           {posts.map((post) => (
             <tr key={post.id} className="bg-gray-900 border-b">
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.author.firstName}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.author.lastName}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.numPosts}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.lastActive}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.author.gender}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">{post.author.role}</td>
-              <td className="border-b border-gray-800 py-3 text-left text-white tracking-wider">
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.author.firstName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.author.lastName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.numPosts}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.lastActive}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.author.gender}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{post.author.role}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">
                 <button
                   onClick={() => handleEdit(post.id)}
-                  className="bg-green-500 text-white px-3 py-1 rounded mr-2"
+                  className="bg-green-600 text-white px-3 py-1 rounded mr-2"
                 >
                   Edit
                 </button>

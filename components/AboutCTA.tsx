@@ -12,7 +12,7 @@ const AboutCTA: React.FC = () => {
         </p>
         <div className="flex flex-col py-4 md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
           <Link href="/create-post" legacyBehavior>
-            <a target="_blank" rel="noopener noreferrer">
+            <a rel="noopener noreferrer">
               <MagicButton 
                 title="Join Now" 
                 otherClasses='text-[1.3rem] flex justify-center items-center text-center'

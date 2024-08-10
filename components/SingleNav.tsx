@@ -40,7 +40,7 @@ export default function Navbar({
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${scrolled ? 'bg-black-200' : 'bg-transparent'}`}>
+    <header className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${scrolled ? 'bg-black-100' : 'bg-transparent'}`}>
       <nav aria-label="Global" className="flex items-center justify-between p-4 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">

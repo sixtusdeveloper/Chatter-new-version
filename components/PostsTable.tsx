@@ -12,7 +12,7 @@ const PostsTable = () => {
       postCount: 15,
       commentCount: 30,
       likeCount: 120,
-      lastActive: '2 days ago',
+      lastActive: '2d ago',
       activeStatus: 'Active',
     },
     {
@@ -21,7 +21,7 @@ const PostsTable = () => {
       postCount: 10,
       commentCount: 25,
       likeCount: 90,
-      lastActive: '1 day ago',
+      lastActive: '1d ago',
       activeStatus: 'Active',
     },
     {
@@ -30,7 +30,7 @@ const PostsTable = () => {
       postCount: 8,
       commentCount: 18,
       likeCount: 75,
-      lastActive: '3 days ago',
+      lastActive: '3d ago',
       activeStatus: 'Inactive',
     },
     {
@@ -39,7 +39,7 @@ const PostsTable = () => {
       postCount: 20,
       commentCount: 40,
       likeCount: 150,
-      lastActive: '5 hours ago',
+      lastActive: '5h ago',
       activeStatus: 'Active',
     },
   ];
@@ -74,25 +74,25 @@ const PostsTable = () => {
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">First Name</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Last Name</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Posts</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Comments</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Likes</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Last Active</th>
-            <th className="border-b-2 py-3 text-left text-white tracking-wider">Status</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">First Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Posts</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Comments</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Likes</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Active</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Status</th>
           </tr>
         </thead>
         <tbody>
           {filteredPosts.map((post, index) => (
             <tr key={index}>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.firstName}</td>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.lastName}</td>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.postCount}</td>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.commentCount}</td>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.likeCount}</td>
-              <td className="border-b py-3 text-white-100 tracking-wider border-gray-800">{post.lastActive}</td>
-              <td className={`border-b py-3 text-white-100 tracking-wider border-gray-800 ${post.activeStatus === 'Active' ? 'text-green-500' : 'text-red-500'}`}>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.firstName}</td>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.lastName}</td>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.postCount}</td>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.commentCount}</td>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.likeCount}</td>
+              <td className="border-b py-4 sm:py-6 text-white-100 tracking-wider border-gray-800">{post.lastActive}</td>
+              <td className={`border-b py-4 sm:py-6 tracking-wider border-gray-800 ${post.activeStatus === 'Active' ? 'text-green-800' : 'text-red-800'}`}>
                 {post.activeStatus}
               </td>
             </tr>

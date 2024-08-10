@@ -34,27 +34,27 @@ const UsersTable = () => {
           onChange={(e) => setFilterRole(e.target.value)}
           className="mt-2 p-2 border bg-transparent border-gray-700 rounded-lg w-full"
         >
-          <option className="bg-blue-700" value="All">All Roles</option>
-          <option className="bg-blue-700" value="Admin">Admin</option>
-          <option className="bg-blue-700" value="Author">Author</option>
+          <option className="bg-blue-600 text-sm tracking-wide border-b-2 py-2 lg:py-4" value="All">All Roles</option>
+          <option className="bg-blue-600 text-sm tracking-wide border-b-2 py-2 lg:py-4" value="Admin">Admin</option>
+          <option className="bg-blue-600 text-sm tracking-wide border-b-2 py-2 lg:py-4" value="Author">Author</option>
         </select>
       </div>
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="border-b-2 py-3 text-left text-white text-md tracking-wide sm:tracking-wider">First Name</th>
-            <th className="border-b-2 py-3 text-left text-white text-md tracking-wide sm:tracking-wider">Last Name</th>
-            <th className="border-b-2 py-3 text-left text-white text-md tracking-wide sm:tracking-wider">Gender</th>
-            <th className="border-b-2 py-3 text-left text-white text-md tracking-wide sm:tracking-wider">Role</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">First Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Last Name</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Gender</th>
+            <th className="border-b-2 py-2 md:py-4 text-left text-purple text-sm tracking-wide">Role</th>
           </tr>
         </thead>
         <tbody>
           {filteredUsers.map((user, index) => (
             <tr key={index}>
-              <td className="border-b py-3">{user.firstName}</td>
-              <td className="border-b py-3">{user.lastName}</td>
-              <td className="border-b py-3">{user.gender}</td>
-              <td className="border-b py-3">{user.role}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{user.firstName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{user.lastName}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{user.gender}</td>
+              <td className="border-b border-gray-800 sm:py-2 md:py-4 text-left text-sm text-white tracking-wider">{user.role}</td>
             </tr>
           ))}
         </tbody>
