@@ -1,5 +1,6 @@
 import Testimonials from "@/components/Testimonials";
-import { Post } from '@/types';
+import { Post } from "@/types";
+
 
 //============================= Home Page Navigation links ============================//
 export const navigation = [
@@ -102,8 +103,7 @@ export const features = [
 },
 ];
 
-// ========================== Posts Section Data ==========================//
-export const posts = [
+export const posts: Post[] = [ // Assuming you're typing the array correctly
   {
     id: 1,
     title: "Boost Your Conversion Rate",
@@ -116,7 +116,8 @@ export const posts = [
     fallbackImageUrl: "/socials04.jpg",
     author: {
       name: "Michael Benjamin",
-      role: "Co-Founder / CTO",
+      position: "Co-Founder / CTO",
+      role: "author",
       date: "August 12th, 2024",
       datetime: "07:55:33",
       organization: "ElitesDev Ltd",
@@ -138,7 +139,8 @@ export const posts = [
     fallbackImageUrl: "/socials03.jpg",
     author: {
       name: "Sandra Ankana",
-      role: "Lead Designer",
+      position: "Lead Designer",
+      role: "author",
       date: "August 3rd, 2024",
       datetime: "2:50:39",
       organization: "Pinace Ltd",
@@ -147,7 +149,6 @@ export const posts = [
       fallbackImageUrl: "/socials01.jpg",
     },
     features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
   },
   {
     id: 3,
@@ -161,7 +162,8 @@ export const posts = [
     fallbackImageUrl: "/socials03.jpg",
     author: {
       name: "Stephenie Bruce",
-      role: "SEO Specialist",
+      position: "SEO Specialist",
+      role: "author",
       date: "August 20th, 2024",
       datetime: "09:25:33",
       organization: "Google",
@@ -170,290 +172,36 @@ export const posts = [
       fallbackImageUrl: "/socials03.jpg",
     },
     features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
   },
   {
     id: 4,
-    title: "How to learn Programming",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
+    title: "How to Learn Programming",
+    href: "/posts/4", // Corrected href from /posts/3 to /posts/4
+    description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+    date: "August 22nd, 2024", // Updated date for variation
+    datetime: "10:15:45",
+    category: { title: "Programming", href: "/categories/programming" }, // Changed to 'Programming' for variety
+    imageUrl: "https://images.unsplash.com/photo-1584697964178-6b26c61114c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    fallbackImageUrl: "/socials04.jpg",
     author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
+      name: "John Smith",
+      position: "Software Engineer",
+      role: "author",
+      date: "August 22nd, 2024",
+      datetime: "10:15:45",
+      organization: "Tech Innovators",
+      href: "/authors/john-smith",
+      imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+      fallbackImageUrl: "/socials02.jpg",
     },
     features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 5,
-    title: "Improve your visibility",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 6,
-    title: "Improve your online presence",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 7,
-    title: "Get more organic traffic",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 8,
-    title: "Enable powerful insights",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 10,
-    title: "Fast-track your growth",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
-    date: "August 20th, 2024",
-    datetime: "09:25:33",
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Stephenie Bruce",
-      role: "SEO Specialist",
-      date: "August 20th, 2024",
-      datetime: "09:25:33",
-      organization: "Google",
-      href: "/authors/john-doe",
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-    
-  },
-  {
-    id: 11,
-    title: "Improve your Software Engineering skills",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
-  },
-  {
-    id: 12,
-    title: "Get more financial stability",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
-  },
-  {
-    id: 13,
-    title: "Make your day more productive",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
-  },
-  {
-    id: 14,
-    title: "Invest your time wisely",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
-  },
-  {
-    id: 15,
-    title: "Invest in your personal development",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
-  },
-  {
-    id: 16,
-    title: "Craft your future with lastest tech skills",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
-    date: "August 3rd, 2024",
-    datetime: "2:50:39",
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      name: "Sandra Ankana",
-      role: "Lead Designer",
-      date: "August 3rd, 2024",
-      datetime: "2:50:39",
-      organization: "Pinace Ltd",
-      href: "/authors/sarah-johnson",
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
-
   },
 ];
 
 
-export const getPostById = (id: number): Post | undefined => {
-  return posts.find(post => post.id === id);
-};
+// export const getPostById = (id: number): Post | undefined => {
+//   return posts.find(post => post.id === id);
+// };
 
 
 

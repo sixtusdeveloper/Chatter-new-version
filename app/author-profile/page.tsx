@@ -1,9 +1,9 @@
 // Example usage in a parent component or page
 import AuthorProfile from '@/components/AuthorProfile';
 
-const exampleAuthor = {
+const AuthorProfilePage = {
   name: 'John Doe',
-  imageUrl: '/path-to-author-image.jpg',
+  imageUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080',
   role: 'Senior Developer',
   organization: 'Tech Company',
   date: 'January 2024',
@@ -12,17 +12,43 @@ const exampleAuthor = {
   fallbackImageUrl: '/fallback-image.jpg',
 };
 
-const examplePosts = [
+const AuthorPosts = [
   {
-    id: 1,
+    id: 2,
     title: 'Understanding React Hooks',
     description: 'An in-depth look at how React Hooks work.',
-    imageUrl: '/path-to-post-image.jpg',
+    imageUrl: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080',
     fallbackImageUrl: '/fallback-image.jpg',
     date: 'January 2024',
     datetime: '2024-01-01T00:00:00Z',
     category: { title: 'React', href: '/categories/react' },
-    author: exampleAuthor,
+    author: AuthorProfilePage,
+    href: '/posts/understanding-react-hooks',
+    features: ['React', 'Hooks', 'JavaScript'],
+  },
+  {
+    id: 3,
+    title: 'Understanding React Hooks',
+    description: 'An in-depth look at how React Hooks work.',
+    imageUrl: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080',
+    fallbackImageUrl: '/fallback-image.jpg',
+    date: 'January 2024',
+    datetime: '2024-01-01T00:00:00Z',
+    category: { title: 'React', href: '/categories/react' },
+    author: AuthorProfilePage,
+    href: '/posts/understanding-react-hooks',
+    features: ['React', 'Hooks', 'JavaScript'],
+  },
+  {
+    id: 1,
+    title: 'Understanding React Hooks',
+    description: 'An in-depth look at how React Hooks work.',
+    imageUrl: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080',
+    fallbackImageUrl: '/fallback-image.jpg',
+    date: 'January 2024',
+    datetime: '2024-01-01T00:00:00Z',
+    category: { title: 'React', href: '/categories/react' },
+    author: AuthorProfilePage,
     href: '/posts/understanding-react-hooks',
     features: ['React', 'Hooks', 'JavaScript'],
   },
@@ -30,7 +56,7 @@ const examplePosts = [
 ];
 
 const AuthorPage = () => (
-  <AuthorProfile author={exampleAuthor} posts={examplePosts} />
+  <AuthorProfile author={AuthorProfilePage} posts={AuthorPosts} />
 );
 
 export default AuthorPage;
