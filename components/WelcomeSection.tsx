@@ -39,7 +39,7 @@ const Hero = () => {
             Discover the latest insights and stories on various topics. Stay updated with our top posts and explore categories that interest you.
           </p>
           <div className="flex flex-col md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
-            <Link href="/create-post" legacyBehavior>
+            <Link href="/pages/create-post" legacyBehavior>
               <a rel="noopener noreferrer">
                 <MagicButton 
                   title="Get Started" 

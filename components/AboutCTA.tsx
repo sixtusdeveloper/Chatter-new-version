@@ -11,7 +11,7 @@ const AboutCTA: React.FC = () => {
           Ready to dive into the world of Chatter? Sign up today to start exploring content, connecting with authors, and becoming part of our vibrant community.
         </p>
         <div className="flex flex-col py-4 md:flex-row justify-center items-center mb-2 space-y-4 md:space-y-0 md:space-x-4">
-          <Link href="/create-post" legacyBehavior>
+          <Link href="/pages/create-post" legacyBehavior>
             <a rel="noopener noreferrer">
               <MagicButton 
                 title="Join Now" 

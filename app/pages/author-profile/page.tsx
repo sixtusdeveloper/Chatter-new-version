@@ -1,5 +1,6 @@
 // Example usage in a parent component or page
 import AuthorProfile from '@/components/AuthorProfile';
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
 const AuthorProfilePage = {
   name: 'John Doe',
@@ -56,7 +57,14 @@ const AuthorPosts = [
 ];
 
 const AuthorPage = () => (
-  <AuthorProfile author={AuthorProfilePage} posts={AuthorPosts} />
+  <>
+    <SignedIn>
+      <AuthorProfile author={AuthorProfilePage} posts={AuthorPosts} />
+    </SignedIn>
+    <SignedOut>
+      <RedirectToSignIn />
+    </SignedOut>
+  </> 
 );
 
 export default AuthorPage;

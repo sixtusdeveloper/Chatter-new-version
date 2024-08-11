@@ -3,7 +3,7 @@
 import React from "react";
 import SingleNav from "@/components/SingleNav";
 import { aboutNavigation } from '@/data';
-import Script from '../../components/TawkToScript'; 
+import Script from '../../../components/TawkToScript'; 
 import AboutIntroduction from "@/components/AboutIntroduction";
 import AboutMission from '@/components/AboutMission';
 import AboutVision from '@/components/AboutVision';

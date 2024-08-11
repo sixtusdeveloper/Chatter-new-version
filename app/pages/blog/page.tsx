@@ -11,6 +11,7 @@ import CategoriesSection from '@/components/CategoriesSection';
 import BlogFooter from "@/components/BlogFooter";
 import withAuth from '@/components/WithAuth';
 import Post from "@/components/AllPostsSection";
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
 interface BlogProps {
   params?: {
@@ -36,17 +37,22 @@ const Blog: React.FC<BlogProps> = () => {
 
   return (
     <>
-      <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
-        <div className="max-w-7xl w-screen">
-          <Navbar navigation={blogNavigation} />
-          <WelcomeSection />
-          <SearchFilterSection posts={posts} onFilteredPosts={handleFilteredPosts} />
-          <FeaturedPostsSection posts={filteredPosts} />
-          <AllPostsSection posts={filteredPosts} />
-          <CategoriesSection />
-          <BlogFooter />
-        </div>
-      </main>
+      <SignedIn>
+        <main className="relative bg-black-100 flex justify-center items-center flex-col mx-auto sm:px-10 px-5 overflow-clip">
+          <div className="max-w-7xl w-screen">
+            <Navbar navigation={blogNavigation} />
+            <WelcomeSection />
+            <SearchFilterSection posts={posts} onFilteredPosts={handleFilteredPosts} />
+            <FeaturedPostsSection posts={filteredPosts} />
+            <AllPostsSection posts={filteredPosts} />
+            <CategoriesSection />
+            <BlogFooter />
+          </div>
+        </main>
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
     </>
   );
 }
