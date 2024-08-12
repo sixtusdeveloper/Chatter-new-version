@@ -99,6 +99,17 @@
 }
 
 
+/* Global Styles */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Ensure all containers don't overflow */
+.container {
+  /* max-width: 100%; */
+  overflow-x: hidden;
+}
+
 
 body {
   font-family: 'Merriweather', serif;

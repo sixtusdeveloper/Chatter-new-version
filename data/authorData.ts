@@ -15,9 +15,9 @@ export const AuthorProfilePage: Author = {
   fallbackImageUrl: '/fallback-image.jpg',
   canCreatePost: true,
   canLike: true,
-  bio: '',
-  followersCount: 0,
-  followingCount: 0
+  bio: 'Jackson Alves is a Senior Developer at Clerk.dev. He has over 10 years of experience in software development and has worked with several tech companies in the past. He is passionate about writing technical articles and tutorials on various topics such as React, JavaScript, and Web Development.',
+  followersCount: 500,
+  followingCount: 100
 };
 
 export const AuthorPosts: Post[] = [

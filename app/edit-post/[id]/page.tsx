@@ -1,34 +1,39 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import { categories } from '@/data';
+import { Spotlight } from '@/components/ui/Spotlight';
 import { fetchPostById, updatePost } from '@/utils/api'; // Implement these functions
+import { useUser } from '@clerk/nextjs';
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
 const EditPost = ({ postId }: { postId: string }) => {
+  const { user, isSignedIn } = useUser();
   const router = useRouter();
 
+ 
   const [title, setTitle] = useState('');
-  const [category, setCategory] = useState<number>(categories[0].id);
+  const [category, setCategory] = useState(categories[0].id);
   const [description, setDescription] = useState('');
-  const [organization, setOrganization] = useState('');
-  const [role, setRole] = useState('');
   const [isFeatured, setIsFeatured] = useState(false);
   const [avatarName, setAvatarName] = useState<string | null>(null);
   const [thumbnailName, setThumbnailName] = useState<string | null>(null);
+  const [organization, setOrganization] = useState('');
+  const [position, setPosition] = useState('');
 
   useEffect(() => {
     const loadPost = async () => {
       try {
-        const post = await fetchPostById(postId); // Fetch the post data
-        setTitle(post.title);
-        setCategory(post.category);
-        setDescription(post.description);
-        setOrganization(post.organization);
-        setRole(post.role);
-        setIsFeatured(post.isFeatured);
-        setAvatarName(post.avatarName);
-        setThumbnailName(post.thumbnailName);
+        setTitle('');
+        setCategory(categories[0].id);
+        setDescription('');
+        setIsFeatured(false);
+        setAvatarName(null);
+        setThumbnailName(null);
+        setOrganization('');
+        setPosition('');
+        
       } catch (error) {
         console.error('Failed to load post', error);
       }
@@ -43,11 +48,11 @@ const EditPost = ({ postId }: { postId: string }) => {
         title,
         category,
         description,
-        organization,
-        role,
         isFeatured,
         avatarName,
         thumbnailName,
+        organization,
+        position,
       };
       await updatePost(postId, updatedPost); // Send updated data to your backend
       router.push('/'); // Redirect after updating the post
@@ -56,131 +61,101 @@ const EditPost = ({ postId }: { postId: string }) => {
     }
   };
 
+  function handleAvatarUpload(event: ChangeEvent<HTMLInputElement>): void {
+    throw new Error('Function not implemented.');
+  }
+
+  function handleThumbnailUpload(event: ChangeEvent<HTMLInputElement>): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
-    <section className="min-h-screen bg-black-100 py-16">
-      <div className="container mx-auto px-6">
-        <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
-          Edit <span className="text-purple">Post</span>
-        </h2>
-        <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
-            <div className="mb-6">
-                <label htmlFor="title" className="block text-white mb-2">Post Title</label>
+    <>
+      <SignedIn>
+        <section className="min-h-screen bg-black-100 py-16">
+          <div>
+            <Spotlight className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen" fill="white" />
+            <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="purple" />
+            <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
+          </div>
+
+          <div className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] absolute flex items-center justify-center top-0 left-0">
+            <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
+          </div>
+          <div className="container mx-auto px-6 z-10 relative">
+            <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
+              Edit<span className="text-purple">&nbp;Post</span>
+            </h2>
+            <h3 className='text-[1.2rem] font-bold tracking-wider text-white text-center sm:text-[1.8rem]'>
+              {isSignedIn && user ? (
+                <>
+                  👋 Hey <span className='text-purple'>{user.firstName}</span>
+                </>
+              ) : (
+                '👋 Hey there!'
+              )}
+            </h3>
+            <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Find below your Post details, you've control over it!</p>
+            <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
+              
+              <div className="mb-6">
+                <label htmlFor="title" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post title</label>
                 <input
-                id="title"
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 text-white"
-                required
+                  id="title"
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  required
                 />
-            </div>
-            <div className="mb-6">
-                <label htmlFor="category" className="block text-white mb-2">Category</label>
+              </div>
+              <div className="mb-6">
+                <label htmlFor="category" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post category</label>
                 <select
-                id="category"
-                value={category}
-                onChange={(e) => setCategory(Number(e.target.value))}
-                className="w-full p-3 rounded-md bg-gray-800 text-white"
-                required
+                  id="category"
+                  value={category}
+                  onChange={(e) => setCategory(Number(e.target.value))}
+                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 >
-                {categories.map((cat) => (
+                  {categories.map((cat) => (
                     <option key={cat.id} value={cat.id}>
-                    {cat.name}
+                      {cat.name}
                     </option>
-                ))}
+                  ))}
                 </select>
-            </div>
-    
-            <div className="mb-6 flex space-x-4">
-                <div className="w-1/2">
-                <label htmlFor="organization" className="block text-white mb-2">Organization</label>
-                <input
-                    id="organization"
-                    type="text"
-                    value={organization}
-                    onChange={(e) => setOrganization(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-white"
-                    required
-                />
-                </div>
-                <div className="w-1/2">
-                <label htmlFor="role" className="block text-white mb-2">Role</label>
-                <input
-                    id="role"
-                    type="text"
-                    value={role}
-                    onChange={(e) => setRole(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-white"
-                    required
-                />
-                </div>
-            </div>
-            <div className="mb-6">
-                <label htmlFor="description" className="block text-white mb-2">Post Description</label>
+              </div>
+              <div className="mb-6">
+                <label htmlFor="description" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post description</label>
                 <textarea
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                className="w-full p-3 rounded-md bg-gray-800 text-white"
-                rows={4}
-                required
+                  id="description"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  rows={4}
                 />
-            </div>
-
-            <div className="mb-6">
-                <label htmlFor="avatar" className="block text-white mb-2">Post Avatar</label>
+              </div>
+              <div className="mb-6">
+                <label htmlFor="thumbnail" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post image</label>
                 <input
-                id="avatar"
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                    setAvatarName(file.name);
-                    }
-                }}
-                className="w-full p-3 rounded-md bg-gray-800 text-white"
+                  id="thumbnail"
+                  type="file"
+                  accept="image/*"
+                  onChange={handleThumbnailUpload}
+                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 />
-                {avatarName && (
-                <div className="mt-2 text-white">
-                    <span>Selected Avatar: {avatarName}</span>
-                </div>
-                )}
-            </div>
-
-            <div className="mb-6">
-                <label htmlFor="thumbnail" className="block text-white mb-2">Post Thumbnail</label>
+              </div>
+              <div className="mb-6 flex items-center space-x-2">
                 <input
-                id="thumbnail"
-                type="file"
-                accept="image/*"
-                onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (file) {
-                    setThumbnailName(file.name);
-                    }
-                }}
-                className="w-full p-3 rounded-md bg-gray-800 text-white"
+                  id="isFeatured"
+                  type="checkbox"
+                  checked={isFeatured}
+                  onChange={() => setIsFeatured(!isFeatured)}
+                  className="w-5 h-5 text-purple-600 border-gray-800 rounded"
                 />
-                {thumbnailName && (
-                <div className="mt-2 text-white">
-                    <span>Selected Thumbnail: {thumbnailName}</span>
-                </div>
-                )}
-            </div>
+                <label htmlFor="isFeatured" className="text-gray-200 text-[0.88rem]">Featured Post</label>
+              </div>
 
-            <div className="mb-6 flex items-center">
-                <input
-                id="featured"
-                type="checkbox"
-                checked={isFeatured}
-                onChange={(e) => setIsFeatured(e.target.checked)}
-                className="mr-2"
-                />
-                <label htmlFor="featured" className="text-white">Mark as Featured</label>
-            </div>
-
-            <div className="flex justify-end space-x-4">
+              <div className="flex justify-end space-x-4">
                 <button
                 type="button"
                 className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500"
@@ -194,10 +169,15 @@ const EditPost = ({ postId }: { postId: string }) => {
                 >
                 Save Changes
                 </button>
-            </div>
-        </form>
-      </div>
-    </section>
+              </div>
+            </form>
+          </div>
+        </section>
+      </SignedIn>
+      <SignedOut>
+        <RedirectToSignIn />
+      </SignedOut>
+    </>
   );
 };
 

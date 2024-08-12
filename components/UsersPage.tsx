@@ -66,9 +66,9 @@ const UsersPage: React.FC = () => {
       </div>
 
       {currentUsers.length > 0 ? (
-        <div className="flex-grow grid grid-cols-1 py-[2.2rem] sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex-grow grid grid-cols-1 py-[2.2rem] sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {currentUsers.map((user) => (
-            <div key={user.id} className="relative border border-gray-800 rounded-lg p-4 shadow-md bg-black-200">
+            <div key={user.id} className="relative border border-gray-800 rounded-lg p-6 shadow-md bg-gray-800">
               <div className="absolute top-4 right-4">
                 <span
                   className={`inline-block px-3 py-1 rounded-full text-sm font-semibold ${
@@ -88,10 +88,9 @@ const UsersPage: React.FC = () => {
                 onError={() => handleImageError(user.id)}
               />
               <h2 className="text-[1rem] font-semibold tracking-wide text-white-100 text-center">{user.name}</h2>
-              <p className="text-gray-400 text-[0.85rem] lg:text-md text-center">{user.position}</p>
-              <p className="text-gray-400 text-md text-[0.72rem] text-center mb-2">{user.organization}</p>
-              <Link href='/pages/users-profile' legacyBehavior className="my-2 py-4">
-                <a className="block text-center text-purple hover:text-green-600 text-[0.82rem] font-semibold hover:no-underline">
+              <p className="text-gray-400 text-[0.85rem] lg:text-md text-center py-2">{user.position} at {user.organization}</p>
+              <Link href='/pages/users-profile' legacyBehavior>
+                <a className="block mb-2 text-center text-purple hover:text-green-600 text-[0.82rem] font-semibold hover:no-underline">
                   View Profile
                 </a>
               </Link>

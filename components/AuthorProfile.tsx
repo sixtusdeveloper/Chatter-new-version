@@ -55,10 +55,10 @@ const AuthorProfile: React.FC<AuthorProfileProps> = ({ author, posts }) => {
           <div className="mt-4">
             {/* Followed and Following buttons */}
             <div className="flex justify-start gap-2 items-center space-x-1">
-              <button className="px-4 py-2 bg-gray-900 text-white rounded-lg">
+              <button className="px-4 py-2 bg-gray-900 text-sm text-gray-300 rounded-lg">
                 Followers: {author.followersCount}
               </button>
-              <button className="px-4 py-2 bg-gray-900 text-white rounded-lg">
+              <button className="px-4 py-2 bg-gray-900 text-sm text-gray-300 rounded-lg">
                 Following: {author.followingCount}
               </button>
             </div>
@@ -68,12 +68,12 @@ const AuthorProfile: React.FC<AuthorProfileProps> = ({ author, posts }) => {
           <h1 className="text-3xl font-bold text-white">{author.name}</h1>
           <p className="mt-2 text-gray-400">{author.position} at {author.organization}</p>
           
-          <p className="mt-4 text-gray-300">
+          <p className="mt-4 text-gray-400">
             Welcome to <span className='text-white'>{author.name}&apos;s</span> profile page. Here you can find all the posts authored by <span className="text-white">{author.name}.</span>
           </p>
 
           {/* Bio Section */}
-          <p className="mt-4 text-gray-200">
+          <p className="mt-4 text-gray-400 text-md leading-7 tracking-wide">
             {author.bio}
           </p>
         </div>

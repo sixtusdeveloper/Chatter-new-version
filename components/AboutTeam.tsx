@@ -22,7 +22,7 @@ const AboutTeam: React.FC = () => {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 z-10">
         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-10">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
             <h2 className="text-[2.6rem] font-bold tracking-wider text-white sm:text-[2.8rem]">

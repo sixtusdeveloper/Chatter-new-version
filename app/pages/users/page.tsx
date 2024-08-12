@@ -5,7 +5,7 @@ const Users = () => {
   return (
     <>
     <SignedIn>
-      <main className="bg-black-200 py-2">
+      <main className="bg-black-100 py-2">
         <UsersPage />
       </main>
       </SignedIn>

@@ -16,8 +16,8 @@ const users: (Author | Admin)[] = [
       date: "2024-08-11",
       datetime: "2024-08-11T08:00:00Z",
       bio: 'John Doe is an experienced software developer...',
-      followersCount: 1200, // Example value
-      followingCount: 350, // Example value
+      followersCount: 500, // Example value
+      followingCount: 100, // Example value
     },
     {
       id: 2,

@@ -26,6 +26,13 @@ const truncateDescription = (text: string, maxLength: number): string => {
   return `${text.slice(0, maxLength)}...`;
 };
 
+// Truncate the organization to a maximum length
+const MAX_ORGANIZATION_LENGTH = 10; // Define the maximum length for the description
+const truncateOrganization = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+};
+
 const AllPostsSection = () => {
   const [posts] = useState<Post[]>(allPosts);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>(allPosts);
@@ -128,18 +135,17 @@ const AllPostsSection = () => {
                         height={40}
                       />
                       <div className="leading-6">
-                        <p className="font-semibold text-sm text-gray-300">
+                        <p className="font-semibold text-md text-gray-300">
                           <Link href={post.author.href} className="hover:text-gray-400">
                             {post.author.name}
                           </Link>
                         </p>
                         <span className='flex text-center'>
-                          <p className="text-xs text-gray-200 mr-2">{post.author.position}</p>
-                          <p className="text-xs text-gray-300">({post.author.organization})</p>
+                          <p className="text-xs text-gray-200 py-1 mr-2">{post.author.position}&nbsp;at&nbsp;{truncateOrganization(post.author.organization, MAX_ORGANIZATION_LENGTH)}</p>
+                          
                         </span>
                         <span className='flex text-center'>
-                          <p className="text-xs text-gray-500 mr-2">{post.author.date}</p>
-                          <p className="text-xs text-gray-500">{post.author.datetime}</p>
+                          <p className="text-xs text-gray-500 mr-2">{post.author.date}&nbsp;{post.author.datetime}</p>
                         </span>
                       </div>
                     </div>
