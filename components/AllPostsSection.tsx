@@ -58,7 +58,7 @@ const AllPostsSection = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-10 z-10">
         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-6">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
-            <h2 className="text-[2.5rem] font-bold tracking-wide text-white sm:text-[2.7rem]">
+            <h2 className="text-[2.4rem] font-bold tracking-wide text-white sm:text-[2.7rem]">
               All<span className="text-purple">&nbsp;Posts</span>
             </h2>
             <p className="mt-2 text-md leading-8 text-white">

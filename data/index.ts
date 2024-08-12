@@ -1,6 +1,5 @@
-import Testimonials from "@/components/Testimonials";
-import { Post } from "@/types";
-
+// import Testimonials from "@/components/Testimonials";
+import { Post, User, Author } from "@/types";
 
 
 //============================= Home Page Navigation links ============================//
@@ -128,6 +127,9 @@ export const posts: Post[] = [
     fallbackImageUrl: "/profile.svg",
     canCreatePost: true,
     canLike: true,
+    bio: "Michael Benjamin is a Co-Founder and CTO at ElitesDev Ltd. He has over 10 years of experience in software development and a passion for creating innovative solutions.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -155,7 +157,10 @@ export const posts: Post[] = [
     imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
     fallbackImageUrl: "/socials01.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Sandara Ankana is a Lead Designer at Pinace Ltd. She specializes in creating visually stunning and highly functional websites that elevate the online presence of businesses.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -183,7 +188,10 @@ export const posts: Post[] = [
     imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
     fallbackImageUrl: "/socials03.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Stephanie Bruce is an SEO Specialist at Google. She has extensive experience in optimizing websites for search engines and driving organic traffic through effective SEO strategies.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -211,7 +219,10 @@ export const posts: Post[] = [
     imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
     fallbackImageUrl: "/profile02.jpeg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Johnson Anderson is a Medical Doctor at Tech Innovators. He specializes in providing medical care and advice to patients, with a focus on preventive health and wellness.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -239,7 +250,10 @@ export const posts: Post[] = [
     imageUrl: "/socials02.jpg",
     fallbackImageUrl: "/socials05.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Freedom George is a Software Engineer at Tech Innovators. He specializes in developing software applications and solutions that meet the needs of clients and users.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -267,7 +281,10 @@ export const posts: Post[] = [
     imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
     fallbackImageUrl: "/socials02.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Franka Benjamin is a Database Administrator at Tech Innovators. She specializes in managing and securing databases to ensure the integrity and confidentiality of data.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -295,7 +312,10 @@ export const posts: Post[] = [
     imageUrl: "/socials11.avif",
     fallbackImageUrl: "/socials12.avif",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Faith Johnson is a UI/UX Designer at Tech Innovators. She specializes in creating intuitive and user-friendly interfaces that enhance the user experience and drive engagement.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -323,7 +343,10 @@ export const posts: Post[] = [
     imageUrl: "/profile02.jpeg",
     fallbackImageUrl: "/profile02.jpeg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Kinglsey Anada is a Fullstack Engineer at Tech Innovators. He specializes in developing end-to-end web applications and solutions that meet the needs of clients and users.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -351,7 +374,10 @@ export const posts: Post[] = [
     imageUrl: "/team-member-2.jpg",
     fallbackImageUrl: "/socials02.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Blenda Smith is a Software Specialist at Tech Innovators. She specializes in developing software applications and solutions that meet the needs of clients and users.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -375,11 +401,14 @@ export const posts: Post[] = [
     date: "August 22nd, 2024",
     datetime: "2024-08-22T10:15:45", // Updated to ISO format
     organization: "Crown Technologies",
-    href: "/authors/john-smith",
+    href: "/authors/paul-freedom",
     imageUrl: "/socials10.avif",
     fallbackImageUrl: "/socials10.avif",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Paul Freedom is an HR Manager at Crown Technologies. He specializes in managing human resources and ensuring the well-being and productivity of employees.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -407,7 +436,10 @@ export const posts: Post[] = [
     imageUrl: "/profile02.jpeg",
     fallbackImageUrl: "/socials14.avif",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Thomas Anderson is a Data Analyst at Tech Innovators. He specializes in analyzing data and generating insights to drive business decisions and strategies.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -435,7 +467,10 @@ export const posts: Post[] = [
     imageUrl: "/team-memeber-3.jpg",
     fallbackImageUrl: "/user01.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Kenneth Johnson is a Technology Consultant at Tech Innovators. He specializes in advising businesses on technology solutions and strategies to optimize their IT infrastructure.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -463,7 +498,10 @@ export const posts: Post[] = [
     imageUrl: "/user01.jpg",
     fallbackImageUrl: "/user01.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Fred Johnson is a Software Engineer at Tech Innovators. He specializes in developing software applications and solutions that meet the needs of clients and users.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -491,7 +529,10 @@ export const posts: Post[] = [
     imageUrl: "/user03.jpg",
     fallbackImageUrl: "/user03.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Sixtus Chibueze is a Software Engineer at Tech Innovators. He specializes in developing software applications and solutions that meet the needs of clients and users.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -519,7 +560,10 @@ export const posts: Post[] = [
     imageUrl: "/user03.jpg",
     fallbackImageUrl: "/user03.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Benjamin Chukwuka is the CEO of Gleam Technologies. He has a passion for technology and innovation, driving the company's growth and success in the tech industry.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -547,7 +591,10 @@ export const posts: Post[] = [
     imageUrl: "/user02.jpg",
     fallbackImageUrl: "/user02.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Zara Smith is a Cloud Engineer at Africa Tech. She specializes in cloud computing and infrastructure, leveraging AWS services to build scalable and reliable solutions for clients.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -575,7 +622,10 @@ export const posts: Post[] = [
     imageUrl: "/user03.jpg",
     fallbackImageUrl: "/user03.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Franklin Chukwuka is a Frontend Engineer at Tech Innovators. He specializes in creating intuitive and user-friendly interfaces that enhance the user experience and drive engagement.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -603,7 +653,10 @@ export const posts: Post[] = [
     imageUrl: "/user01.jpg",
     fallbackImageUrl: "/user01.jpg",
     canCreatePost: true, // Added
-    canLike: true, // Added
+    canLike: true,
+    bio: "Kingston Aondofa is a Sales Engineer at Drinks and Foods. He specializes in developing sales strategies and techniques to drive revenue and growth for the company.",
+    followersCount: 0,
+    followingCount: 0
   },
   features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
   tags: ["conversion", "marketing", "user engagement"], // Add some example tags
@@ -616,8 +669,6 @@ export const posts: Post[] = [
 export const getPostById = (id: number): Post | undefined => {
   return posts.find(post => post.id === id);
 };
-
-
 
 //===============================  Testimonials Section Data ================================//
 export const testimonials = [
@@ -693,7 +744,6 @@ export const teamMembers = [
   },
 ];
 
-
 // ======================== Side Bar Navigation Links for DOCUMENTATION ============================//
 export const SidebarNavbarLists = [
   { name: 'Introduction', href: 'introduction' },
@@ -705,7 +755,6 @@ export const SidebarNavbarLists = [
   { name: 'FAQ', href: 'faq' },
 ];
 
-
 // /data/sidebarLinks.ts
 
 export const DashboardNavLinks = [
@@ -714,3 +763,5 @@ export const DashboardNavLinks = [
   { name: 'Roles', href: 'roles' },
   { name: 'Manage Posts', href: 'manage-posts' },
 ];
+
+

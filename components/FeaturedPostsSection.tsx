@@ -50,8 +50,8 @@ const FeaturedPostsSection = () => {
 
   return (
     <section className="bg-black-200 lg:px-10 py-8 lg:py-12" id="featured-posts">
-      <div className="container mx-auto px-6">
-        <h2 className="font-bold mb-6 lg:mb-[5rem] text-center text-2xl tracking-wider text-white lg:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
+      <div className="container mx-auto px-2">
+        <h2 className="font-bold mb-6 lg:mb-[5rem] text-center text-[2.4rem] tracking-wider text-white lg:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
         <div className="flex flex-col md:flex-row items-center">
           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
             <Image src={featuredPost.imageUrl} alt={featuredPost.title} width={400} height={240} className="object-cover rounded-lg" />

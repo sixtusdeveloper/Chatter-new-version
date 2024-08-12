@@ -1,72 +1,24 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import { Author, Admin } from "@/types"; 
 import Image from "next/image";
 import Link from "next/link";
 import UserNotFound from "@/components/UserNotFound";
-
-const users: (Author | Admin)[] = [
-  {
-    id: 1,
-    name: "Michael Benjamin",
-    role: "author",
-    position: "Co-Founder / CTO",
-    organization: "ElitesDev Ltd",
-    href: "/authors/michael-foster",
-    imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/profile.svg",
-    canCreatePost: true,
-    canLike: true,
-    date: "2024-08-11",
-    datetime: "2024-08-11T08:00:00Z",
-  },
-  {
-    id: 2,
-    name: "Sandra Ankana",
-    role: "admin",
-    position: "Lead Designer",
-    organization: "Pinace Ltd",
-    href: "/authors/sandra-ankana",
-    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials01.jpg",
-    canCreatePost: true,
-    canLike: true,
-    canComment: true,
-    canFeaturePost: true,
-    canViewCommenters: true,
-    date: "2024-08-11",
-    datetime: "2024-08-11T08:00:00Z",
-  },
-  {
-    id: 3,
-    name: "Anita Johnson",
-    role: "admin",
-    position: "Cloud Engineer",
-    organization: "Pinace Ltd",
-    href: "/authors/sandra-ankana",
-    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials01.jpg",
-    canCreatePost: true,
-    canLike: true,
-    canComment: true,
-    canFeaturePost: true,
-    canViewCommenters: true,
-    date: "2024-08-11",
-    datetime: "2024-08-11T08:00:00Z",
-  },
-];
+import usersData from "@/data/userData";
 
 const UsersPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [filterRole, setFilterRole] = useState<"all" | "author" | "admin">("all");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [usersPerPage] = useState<number>(6); // Adjust the number of users per page as needed
   const [imageError, setImageError] = useState<{ [key: number]: boolean }>({});
 
   const handleImageError = (id: number) => {
     setImageError((prev) => ({ ...prev, [id]: true }));
   };
 
-  const filteredUsers = users.filter((user) => {
+  const filteredUsers = usersData.filter((user) => {
     const matchesRole = filterRole === "all" || user.role === filterRole;
     const matchesSearch =
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -75,6 +27,14 @@ const UsersPage: React.FC = () => {
 
     return matchesRole && matchesSearch;
   });
+
+  // Pagination Logic
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = filteredUsers.slice(indexOfFirstUser, indexOfLastUser);
+  const totalPages = Math.ceil(filteredUsers.length / usersPerPage);
+
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <div className="container mx-auto lg:px-10 px-8 py-8 bg-black-200 min-h-screen flex flex-col">
@@ -105,9 +65,9 @@ const UsersPage: React.FC = () => {
         </select>
       </div>
 
-      {filteredUsers.length > 0 ? (
+      {currentUsers.length > 0 ? (
         <div className="flex-grow grid grid-cols-1 py-[2.2rem] sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredUsers.map((user) => (
+          {currentUsers.map((user) => (
             <div key={user.id} className="relative border border-gray-800 rounded-lg p-4 shadow-md bg-black-200">
               <div className="absolute top-4 right-4">
                 <span
@@ -143,11 +103,25 @@ const UsersPage: React.FC = () => {
           <UserNotFound />
         </div>
       )}
+
+      {/* Pagination Controls */}
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-6">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              onClick={() => paginate(index + 1)}
+              className={`mx-1 px-3 py-1 rounded-lg ${
+                currentPage === index + 1 ? "bg-purple-600 text-white" : "bg-gray-700 text-gray-200"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
 export default UsersPage;
-
-
-
