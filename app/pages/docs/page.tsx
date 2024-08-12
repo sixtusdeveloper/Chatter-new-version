@@ -5,7 +5,7 @@ import DocumentationSidebar from '@/components/DocsSidebar';
 import DocumentationContent from '@/components/DocsContent';
 import DocsNavbar from '@/components/DocsNavbar';
 import Image from 'next/image';
-import '../styles/documentation.css';
+import '../../styles/documentation.css';
 
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 

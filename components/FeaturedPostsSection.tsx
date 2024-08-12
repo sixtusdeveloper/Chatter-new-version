@@ -49,9 +49,9 @@ const FeaturedPostsSection = () => {
   };
 
   return (
-    <section className="bg-black-200 py-12" id="featured-posts">
+    <section className="bg-black-200 lg:px-10 py-8 lg:py-12" id="featured-posts">
       <div className="container mx-auto px-6">
-        <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
+        <h2 className="font-bold mb-6 lg:mb-[5rem] text-center text-2xl tracking-wider text-white lg:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
         <div className="flex flex-col md:flex-row items-center">
           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
             <Image src={featuredPost.imageUrl} alt={featuredPost.title} width={400} height={240} className="object-cover rounded-lg" />
@@ -79,9 +79,11 @@ const FeaturedPostsSection = () => {
               </div>
             </div>
           </div>
-          <div className="md:ml-6 flex-1 overflow-y-auto md:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
-            <h2 className="text-2xl font-bold text-white mt-4 mb-4 md:mt-0 md:mb-0">{featuredPost.title}</h2>
+          <div className="md:ml-6 flex-1 overflow-y-auto lg:px-10 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
+            
+            <h2 className="text-2xl font-bold text-white lg:mt-0 lg:mb-0">{featuredPost.title}</h2>
             <p className="mt-2 text-gray-400 text-sm leading-6">{featuredPost.description}</p>
+            
             <div className="my-8 flex items-center">
               <Image src={featuredPost.author.imageUrl} alt={featuredPost.author.name} width={48} height={48} className="rounded-full" />
               <div className="ml-4">
@@ -133,246 +135,6 @@ const FeaturedPostsSection = () => {
 };
 
 export default FeaturedPostsSection;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// 'use client';
-// import React, { useState } from 'react';
-// import Image from 'next/image';
-// import { Author } from '@/types';
-// import { format, parseISO } from 'date-fns';
-// import { FaComment, FaFacebook, FaLinkedin, FaThumbsUp, FaTwitter } from 'react-icons/fa';
-
-// const AuthorInfo = ({ author }: { author: Author }) => (
-//   <div className="my-8 flex items-center">
-//     <Image src={author.imageUrl} alt={author.name} width={48} height={48} className="rounded-full" />
-//     <div className="ml-4">
-//       <p className="text-sm font-semibold text-white">{author.name}</p>
-//       <span className='flex text-center py-1'>
-//         <p className="text-xs text-gray-200 mr-2">{author.role}</p>
-//         <p className="text-xs text-gray-300">({author.organization})</p>
-//       </span>
-//       <span className='flex text-center'>
-//         <p className="text-xs text-gray-500 mr-2">{format(parseISO(author.date), 'PP')}</p>
-//         <p className="text-xs text-gray-500">{format(parseISO(author.datetime), 'p')}</p>
-//       </span>
-//     </div>
-//   </div>
-// );
-
-// const featuredPost = {
-//   category: {
-//     title: "Category Title"
-//   },
-//   imageUrl: "https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080", // Replace "path/to/image.jpg" with the actual image URL
-//   title: "Featured Post Title", // Add the 'title' property
-//   description: "Featured Post Description" // Add the 'description' property
-// };
-
-// const SocialIcons = () => (
-//   <div className="flex justify-between items-center mt-4 gap-8">
-//     <div className='flex space-x-4 bg-transparent rounded-full py-1 px-2 border border-gray-800'>
-//       <FaFacebook className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
-//       <FaTwitter className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
-//       <FaLinkedin className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
-//     </div>
-//     <div className='flex items-center bg-transparent py-1 px-2 rounded-full border border-gray-800'>
-//       <p className='text-sm text-gray-400'>{featuredPost.category.title}</p>
-//     </div>
-//   </div>
-// );
-
-// const FeaturedPostsSection = () => {
-//   const [comment, setComment] = useState('');
-//   const [likes, setLikes] = useState<number>(0);
-//   const [commentsCount, setCommentsCount] = useState<number>(0);
-//   const [liked, setLiked] = useState<boolean>(false);
-
-//   const handleLike = () => {
-//     if (liked) {
-//       setLikes(likes - 1);
-//     } else {
-//       setLikes(likes + 1);
-//     }
-//     setLiked(!liked);
-//   };
-
-//   const handleCommentSubmit = () => {
-//     if (comment.trim()) {
-//       setCommentsCount(commentsCount + 1);
-//       setComment('');
-//     }
-//   };
-
-//   return (
-//     <section className="bg-black-200 py-12" id="featured-posts">
-//       <div className="container mx-auto px-6">
-//         <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
-//         <div className="flex flex-col md:flex-row items-center">
-//           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
-//             <Image src={featuredPost.imageUrl} alt={featuredPost.title} width={400} height={240} className="object-cover rounded-lg" />
-//             <SocialIcons />
-//           </div>
-//           <div className="md:ml-6 flex-1 overflow-y-auto md:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
-//             <h2 className="text-2xl font-bold text-white mt-4 mb-4 md:mt-0 md:mb-0">{featuredPost.title}</h2>
-//             <p className="mt-2 text-gray-400 text-sm leading-6">{featuredPost.description}</p>
-//             {/* <AuthorInfo author={featuredPost.author} /> */}
-//             <div className="mt-4 flex w-2xl gap-4 items-center p-1">
-//               <button
-//                 className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-400 border-1' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
-//                 onClick={handleLike}
-//               >
-//                 <FaThumbsUp size={18} />
-//                 <span>{likes}</span>
-//               </button>
-//               <button
-//                 className="flex items-center gap-2 text-gray-400 hover:text-gray-300 bg-transparent rounded-full border border-gray-800 py-1 px-2"
-//               >
-//                 <FaComment size={18} />
-//                 <span>{commentsCount}</span>
-//               </button>
-//             </div>
-//             <div className="mt-8">
-//               <textarea
-//                 className="w-full h-24 p-2 rounded-md bg-gray-800 border border-gray-700 text-white resize-none"
-//                 placeholder="Add a comment..."
-//                 value={comment}
-//                 onChange={(e) => setComment(e.target.value)}
-//               />
-//               <button
-//                 className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500"
-//                 onClick={handleCommentSubmit}
-//               >
-//                 Post Comment
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default FeaturedPostsSection;
-
-
-
-// More structured and Modolized Code
-// 'use client';
-
-// import React, { useState } from 'react';
-// import Image from 'next/image';
-// import { FaFacebook, FaTwitter, FaLinkedin, FaThumbsUp, FaComment } from 'react-icons/fa';
-// import { Post } from '@/types'; // Adjust the import path based on your project structure
-// import AuthorInfo from '@/components/AuthorInfo';
-// import SocialIcons from '@/components/SocialIcons';
-
-
-// const FeaturedPostsSection = ({ featuredPost }: { featuredPost: Post }) => {
-//   const [comment, setComment] = useState('');
-//   const [likes, setLikes] = useState<number>(0);
-//   const [commentsCount, setCommentsCount] = useState<number>(0);
-//   const [liked, setLiked] = useState<boolean>(false);
-
-//   const handleLike = () => {
-//     if (liked) {
-//       setLikes(likes - 1);
-//     } else {
-//       setLikes(likes + 1);
-//     }
-//     setLiked(!liked);
-//   };
-
-//   const handleCommentSubmit = () => {
-//     if (comment.trim()) {
-//       setCommentsCount(commentsCount + 1);
-//       setComment('');
-//     }
-//   };
-
-//   return (
-//     <section className="bg-black-200 py-12" id="featured-posts">
-//       <div className="container mx-auto px-6">
-//         <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">
-//           Featured <span className="text-purple">Post</span>
-//         </h2>
-//         <div className="flex flex-col md:flex-row items-center">
-//           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
-//             <Image
-//               src={featuredPost.imageUrl}
-//               alt={featuredPost.title}
-//               width={400}
-//               height={240}
-//               className="object-cover rounded-lg"
-//             />
-//             <SocialIcons category={featuredPost.category} />
-//           </div>
-//           <div className="md:ml-6 flex-1 overflow-y-auto md:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
-//             <h2 className="text-2xl font-bold text-white mt-4 mb-4 md:mt-0 md:mb-0">
-//               {featuredPost.title}
-//             </h2>
-//             <p className="mt-2 text-gray-400 text-sm leading-6">
-//               {featuredPost.description}
-//             </p>
-//             <AuthorInfo author={featuredPost.author} />
-//             <div className="mt-4 flex w-2xl gap-4 items-center p-1">
-//               <button
-//                 className={`flex items-center gap-2 ${
-//                   liked ? 'text-blue-400 border-blue-400 border-1' : 'text-gray-400 border-gray-800'
-//                 } bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
-//                 onClick={handleLike}
-//               >
-//                 <FaThumbsUp size={18} />
-//                 <span>{likes}</span>
-//               </button>
-//               <button className="flex items-center gap-2 text-gray-400 hover:text-gray-300 bg-transparent rounded-full border border-gray-800 py-1 px-2">
-//                 <FaComment size={18} />
-//                 <span>{commentsCount}</span>
-//               </button>
-//             </div>
-//             <div className="mt-8">
-//               <textarea
-//                 className="w-full h-24 p-2 rounded-md bg-gray-800 border border-gray-700 text-white resize-none"
-//                 placeholder="Add a comment..."
-//                 value={comment}
-//                 onChange={(e) => setComment(e.target.value)}
-//               />
-//               <button
-//                 className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500"
-//                 onClick={handleCommentSubmit}
-//               >
-//                 Post Comment
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default FeaturedPostsSection;
-
-
-
 
 
 

@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
-      <div className="flex justify-center relative my-20 z-10">
+      <div className="flex justify-center relative py-8 lg:my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           {/* Display the user's name if signed in */}
           <h3 className='text-[1.2rem] font-bold tracking-wider text-white sm:text-[1.8rem]'>
@@ -32,7 +32,7 @@ const Hero = () => {
             )}
           </h3>
 
-          <h1 className='text-[2.5rem] font-bold tracking-wider text-center text-white sm:text-[2.8rem]'>
+          <h1 className='text-[2.8rem] font-bold tracking-wider text-center text-white lg:text-[2.8rem]'>
             Welcome to Our <span className='text-purple'>Blog</span>
           </h1>
           <p className="text-center md:tracking-wider sm:tracking-wider my-4 text-[16px] md:text-[16px] lg:text-[16px] md:mb-8 mb-8 text-gray-300">

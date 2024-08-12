@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const Features = () => {
   return (
-      <div className="relative md:pt-10 mx-auto max-w-7xl px-6 lg:px-8 pb-20" id="Features">
+      <div className="relative md:pt-10 mx-auto max-w-7xl px-6 lg:px-16 pb-20" id="Features">
         <h1 className="text-white font-bold text-center text-[2.7rem] leading-snug tracking-wide">Explore <span className="text-purple">Chatter Features</span></h1>
 
          <div className='w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10'>

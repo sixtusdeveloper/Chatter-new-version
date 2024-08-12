@@ -15,9 +15,9 @@ export const navigation = [
 // ======================== About Page Navigation links ========================//
 export const aboutNavigation = [
   { name: 'Home', href: '/' },
-  { name: 'Docs', href: '/docs' },
-  { name: 'Community', href: '/blog' },
-  { name: 'Dashboard', href: '/admin-dashboard' },
+  { name: 'Docs', href: '/pages/docs' },
+  { name: 'Community', href: '/pages/blog' },
+  { name: 'Dashboard', href: '/pages/admin-dashboard' },
 ];
 
 // ============================ Blog Post Navigation links ==========================//
@@ -30,9 +30,9 @@ export const blogNavigation = [
 //======================= Blog Single Post Navigation links ========================//
 export const singlePostNavigation = [
   { name: 'Home', href: '/' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Authors', href: '/authors' },
-  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Blog', href: '/pages/blog' },
+  { name: 'Users', href: '/pages/users' },
+  { name: 'Dashboard', href: '/pages/dashboard' },
 ];
 
 // =================== Blog Post Category Items ======================= //
@@ -104,112 +104,518 @@ export const features = [
 },
 ];
 
-export const posts: Post[] = [ // Assuming you're typing the array correctly
+export const posts: Post[] = [ 
   {
+  id: 1,
+  title: "Boost Your Conversion Rate",
+  href: "/single-post/1",
+  description: "Unlock the potential of your marketing strategy by improving your conversion rates. Discover actionable insights and proven techniques to enhance user engagement, drive higher sales, and turn visitors into loyal customers. Learn how to optimize every step of your customer journey with data-driven strategies.",
+  date: "August 12th, 2024",
+  datetime: "07:55:33",
+  category: { title: "Marketing", href: "/categories/marketing" },
+  imageUrl: "https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080",
+  fallbackImageUrl: "/socials04.jpg",
+  author: {
     id: 1,
-    title: "Boost Your Conversion Rate",
-    href: "/posts/1",
-    description: "Unlock the potential of your marketing strategy by improving your conversion rates. Discover actionable insights and proven techniques to enhance user engagement, drive higher sales, and turn visitors into loyal customers. Learn how to optimize every step of your customer journey with data-driven strategies.",
+    name: "Michael Benjamin",
+    position: "Co-Founder / CTO",
+    role: "author",
     date: "August 12th, 2024",
     datetime: "07:55:33",
-    category: { title: "Marketing", href: "/categories/marketing" },
-    imageUrl: "https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials04.jpg",
-    author: {
-      id: 1, // Added
-      name: "Michael Benjamin",
-      position: "Co-Founder / CTO",
-      role: "author",
-      date: "August 12th, 2024",
-      datetime: "07:55:33",
-      organization: "ElitesDev Ltd",
-      href: "/authors/michael-foster",
-      imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/profile.svg",
-      canCreatePost: true, // Added
-      canLike: true, // Added
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+    organization: "ElitesDev Ltd",
+    href: "/authors/michael-foster",
+    imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    fallbackImageUrl: "/profile.svg",
+    canCreatePost: true,
+    canLike: true,
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
   },
   {
+  id: 2,
+  title: "Improve Your Website Design",
+  href: "/single-post/2",
+  description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
+  date: "August 3rd, 2024",
+  datetime: "2024-08-03T14:50:39", // Updated to ISO format
+  category: { title: "Design", href: "/categories/design" },
+  imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
+  fallbackImageUrl: "/socials03.jpg",
+  author: {
     id: 2,
-    title: "Improve Your Website Design",
-    href: "/posts/2",
-    description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
+    name: "Sandra Ankana",
+    position: "Lead Designer",
+    role: "author",
     date: "August 3rd, 2024",
     datetime: "2024-08-03T14:50:39", // Updated to ISO format
-    category: { title: "Design", href: "/categories/design" },
-    imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
-    fallbackImageUrl: "/socials03.jpg",
-    author: {
-      id: 2,
-      name: "Sandra Ankana",
-      position: "Lead Designer",
-      role: "author",
-      date: "August 3rd, 2024",
-      datetime: "2024-08-03T14:50:39", // Updated to ISO format
-      organization: "Pinace Ltd",
-      href: "/authors/sandra-ankana", // Corrected href to match the author's name
-      imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials01.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+    organization: "Pinace Ltd",
+    href: "/authors/sandra-ankana", // Corrected href to match the author's name
+    imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    fallbackImageUrl: "/socials01.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
 },
 {
-    id: 3,
-    title: "Maximize Your SEO Efforts",
-    href: "/posts/3",
-    description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
+  id: 3,
+  title: "Maximize Your SEO Efforts",
+  href: "/single-post/3",
+  description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
+  date: "August 20th, 2024",
+  datetime: "2024-08-20T09:25:33", // Updated to ISO format
+  category: { title: "SEO", href: "/categories/seo" },
+  imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+  fallbackImageUrl: "/socials03.jpg",
+  author: {
+    id: 3, // Added id for consistency
+    name: "Stephanie Bruce", // Corrected spelling
+    position: "SEO Specialist",
+    role: "author",
     date: "August 20th, 2024",
     datetime: "2024-08-20T09:25:33", // Updated to ISO format
-    category: { title: "SEO", href: "/categories/seo" },
-    imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    organization: "Google",
+    href: "/authors/stephanie-bruce", // Corrected href to match the author's name
+    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
     fallbackImageUrl: "/socials03.jpg",
-    author: {
-      id: 3, // Added id for consistency
-      name: "Stephanie Bruce", // Corrected spelling
-      position: "SEO Specialist",
-      role: "author",
-      date: "August 20th, 2024",
-      datetime: "2024-08-20T09:25:33", // Updated to ISO format
-      organization: "Google",
-      href: "/authors/stephanie-bruce", // Corrected href to match the author's name
-      imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
-      fallbackImageUrl: "/socials03.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
 },
 {
-    id: 4,
-    title: "How to Learn Programming",
-    href: "/posts/4",
-    description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  id: 4,
+  title: "Understanding the importance of health",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Medicine", href: "/categories/programming" },
+  imageUrl: "/socials24.avif",
+  fallbackImageUrl: "/socials24.avif",
+  author: {
+    id: 4, // Added id for consistency
+    name: "Johnson Anderson",
+    position: "Medical Doctor",
+    role: "author",
     date: "August 22nd, 2024",
     datetime: "2024-08-22T10:15:45", // Updated to ISO format
-    category: { title: "Programming", href: "/categories/programming" },
-    imageUrl: "https://images.unsplash.com/photo-1584697964178-6b26c61114c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials04.jpg",
-    author: {
-      id: 4, // Added id for consistency
-      name: "John Smith",
-      position: "Software Engineer",
-      role: "author",
-      date: "August 22nd, 2024",
-      datetime: "2024-08-22T10:15:45", // Updated to ISO format
-      organization: "Tech Innovators",
-      href: "/authors/john-smith",
-      imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-      fallbackImageUrl: "/socials02.jpg",
-    },
-    features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    fallbackImageUrl: "/profile02.jpeg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 5,
+  title: "How to learn programming from scratch",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Technology", href: "/categories/programming" },
+  imageUrl: "/socials05.jpg",
+  fallbackImageUrl: "/socials05.jpg",
+  author: {
+    id: 5, // Added id for consistency
+    name: "Freedom George",
+    position: "Software Engineer",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "/socials02.jpg",
+    fallbackImageUrl: "/socials05.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 6,
+  title: "How to secure your data",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Technology", href: "/categories/programming" },
+  imageUrl: "/team-member-1.jpg",
+  fallbackImageUrl: "/socials04.jpg",
+  author: {
+    id: 6, // Added id for consistency
+    name: "Franka Benjamin",
+    position: "Database Administrator",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+    fallbackImageUrl: "/socials02.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 7,
+  title: "Knowing your design tools",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Design", href: "/categories/programming" },
+  imageUrl: "/socials12.avif",
+  fallbackImageUrl: "/socials11.avif",
+  author: {
+    id: 7, // Added id for consistency
+    name: "Faith Johnson",
+    position: "UI/UX Designer",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "/socials11.avif",
+    fallbackImageUrl: "/socials12.avif",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 8,
+  title: "How to become a Fullstack Engineer",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials10.avif",
+  fallbackImageUrl: "/socials11.avif",
+  author: {
+    id: 8, // Added id for consistency
+    name: "Kingsley Anada",
+    position: "Fullstack Engineer",
+    role: "author",
+    date: "August 20th, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "/profile02.jpeg",
+    fallbackImageUrl: "/profile02.jpeg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 9,
+  title: "Becoming a Software specialist",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 24th, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials06.avif",
+  fallbackImageUrl: "/socials07.avif",
+  author: {
+    id: 9, // Added id for consistency
+    name: "Blenda Smith",
+    position: "Software Specialist",
+    role: "author",
+    date: "March 20th, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "/team-member-2.jpg",
+    fallbackImageUrl: "/socials02.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 10,
+  title: "Knowing committed staffs in your organization",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Business", href: "/categories/programming" },
+  imageUrl: "/socials08.avif",
+  fallbackImageUrl: "/socials09.avif",
+  author: {
+    id: 10, // Added id for consistency
+    name: "Paul Freedom",
+    position: "Hr Manager",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Crown Technologies",
+    href: "/authors/john-smith",
+    imageUrl: "/socials10.avif",
+    fallbackImageUrl: "/socials10.avif",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 11,
+  title: "Ensuring your website security",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Technology", href: "/categories/programming" },
+  imageUrl: "/socials14.avif",
+  fallbackImageUrl: "/socials14.avif",
+  author: {
+    id: 11, // Added id for consistency
+    name: "Thomas Anderson",
+    position: "Data Analyst",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/john-smith",
+    imageUrl: "/profile02.jpeg",
+    fallbackImageUrl: "/socials14.avif",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 12,
+  title: "Knowing your IT infrastructure",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials15.avif",
+  fallbackImageUrl: "/socials15.avif",
+  author: {
+    id: 12, // Added id for consistency
+    name: "Kenneth Johnson",
+    position: "Technology Consultant",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/kenneth-johnson",
+    imageUrl: "/team-memeber-3.jpg",
+    fallbackImageUrl: "/user01.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 13,
+  title: "Becoming world-class software engineer",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 24th, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials16.avif",
+  fallbackImageUrl: "/socials17.avif",
+  author: {
+    id: 13, // Added id for consistency
+    name: "Fred Johnson",
+    position: "Software Engineer",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/Fred-johnson",
+    imageUrl: "/user01.jpg",
+    fallbackImageUrl: "/user01.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 14,
+  title: "How to Learn React framework",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials17.avif",
+  fallbackImageUrl: "/socials17.avif",
+  author: {
+    id: 14, // Added id for consistency
+    name: "Sixtus Chibueze",
+    position: "Software Engineer",
+    role: "author",
+    date: "August 22nd, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/Sixtus-chibueze",
+    imageUrl: "/user03.jpg",
+    fallbackImageUrl: "/user03.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 15,
+  title: "The best technology practices",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials18.avif",
+  fallbackImageUrl: "/socials18.avif",
+  author: {
+    id: 15, // Added id for consistency
+    name: "Benjamin Chukwuka",
+    position: "CEO",
+    role: "author",
+    date: "June 21st, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Gleam Technologies",
+    href: "/authors/Benjamin-chukwuka",
+    imageUrl: "/user03.jpg",
+    fallbackImageUrl: "/user03.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 16,
+  title: "How to use the AWS Lambda",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials23.avif",
+  fallbackImageUrl: "/socials23.avif",
+  author: {
+    id: 16, // Added id for consistency
+    name: "Zara Smith",
+    position: "Cloud Engineer",
+    role: "author",
+    date: "Jan 21st, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Africa Tech",
+    href: "/authors/Zara-smith",
+    imageUrl: "/user02.jpg",
+    fallbackImageUrl: "/user02.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 17,
+  title: "The best UI/UX design practices",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "Jan 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials13.avif",
+  fallbackImageUrl: "/socials13.avif",
+  author: {
+    id: 17, // Added id for consistency
+    name: "Franklin Chukwuka",
+    position: "Frontend Engineer",
+    role: "author",
+    date: "June 21st, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Tech Innovators",
+    href: "/authors/Franklin-chukwuka",
+    imageUrl: "/user03.jpg",
+    fallbackImageUrl: "/user03.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
+},
+{
+  id: 18,
+  title: "How to know the best practices in sales",
+  href: "/single-post/4",
+  description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
+  date: "August 22nd, 2024",
+  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  category: { title: "Programming", href: "/categories/programming" },
+  imageUrl: "/socials21.avif",
+  fallbackImageUrl: "/socials21.avif",
+  author: {
+    id: 18, // Added id for consistency
+    name: "Kingston Aondofa",
+    position: "Sales Engineer",
+    role: "author",
+    date: "June 21st, 2024",
+    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    organization: "Drinks and Foods",
+    href: "/authors/Kingston-aondofa",
+    imageUrl: "/user01.jpg",
+    fallbackImageUrl: "/user01.jpg",
+    canCreatePost: true, // Added
+    canLike: true, // Added
+  },
+  features: ["SEO", "Design", "Marketing", "Science", "Technology", "Architecture", "Writing"],
+  tags: ["conversion", "marketing", "user engagement"], // Add some example tags
+  content: "Detailed content about boosting conversion rates, strategies, and insights.", // Add content
 },
 
 ];
 
 
-// export const getPostById = (id: number): Post | undefined => {
-//   return posts.find(post => post.id === id);
-// };
+export const getPostById = (id: number): Post | undefined => {
+  return posts.find(post => post.id === id);
+};
 
 
 

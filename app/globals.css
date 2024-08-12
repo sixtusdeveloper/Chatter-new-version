@@ -111,6 +111,13 @@ h1, h2, h3, h4, h5, h6 {
 .button, .highlight {
   font-family: 'Raleway', sans-serif;
 }
+.post-image{
+  width: 400px !important;
+  height: 250px !important;
+  object-fit: cover !important;
+  border: none !important;
+  border-radius: 10px !important;
+}
 
 .avatar-image {
   width: 40px !important;

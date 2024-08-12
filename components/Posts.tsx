@@ -35,7 +35,7 @@ const Posts = () => {
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10 z-10">
         <div className="lg:mx-0 mx-auto text-center mt-8 md:p-6">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-3xl xl:max-w-4xl mt-0 sm:mt-0 lg:mt-0">
             <h2 className="text-[2.7rem] font-bold tracking-wider text-white sm:text-[2.7rem]">
@@ -57,7 +57,7 @@ const Posts = () => {
               <ImageWithFallback
                 src={post.imageUrl}
                 alt={post.title}
-                className="w-full h-57 md:h-60 object-cover rounded-lg"
+                className="w-full h-57 md:h-60 object-cover rounded-lg post-image"
                 fallbackSrc={post.fallbackImageUrl}
                 width={500}
                 height={300}
@@ -85,7 +85,7 @@ const Posts = () => {
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-gray-300">
                     {truncateDescription(post.description, MAX_DESCRIPTION_LENGTH)}
-                    <Link href="/single-post" legacyBehavior>
+                    <Link href="/pages/single-post" legacyBehavior>
                       <a
                         className="text-purple hover:text-purple-600 inline-flex items-center cursor-pointer"
                       >
@@ -112,7 +112,7 @@ const Posts = () => {
                       </a>
                     </p>
                     <span className='flex text-center'>
-                      <p className="text-xs text-gray-200 mr-2">{post.author.role}</p>
+                      <p className="text-xs text-gray-200 mr-2">{post.author.position}</p>
                       <p className="text-xs text-gray-300">({post.author.organization})</p>
                     </span>
                     <span className='flex text-center'>
@@ -128,7 +128,7 @@ const Posts = () => {
 
         {/* View more button */}
         <div className="flex md:w-full relative flex-col justify-center items-center mt-4 md:mt-12">
-          <Link href="/blog" legacyBehavior>
+          <Link href="/pages/blog" legacyBehavior>
             <a rel="noopener noreferrer" className="bg-purple-500 text-purple text-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-purple-600">
               View More <GoArrowRight className="text-purple forced-colors:purple text-lg" />
             </a>
