@@ -6,29 +6,16 @@ import { categories } from '@/data';
 import { createPost } from '@/utils/api';
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 import { Spotlight } from '@/components/ui/Spotlight';
+import { useUser } from '@clerk/nextjs';
 
 const CreatePost = () => {
+  const { user, isSignedIn } = useUser();
   const router = useRouter();
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState(categories[0].id);
   const [description, setDescription] = useState('');
   const [isFeatured, setIsFeatured] = useState(false);
-  const [avatarName, setAvatarName] = useState<string | null>(null);
   const [thumbnailName, setThumbnailName] = useState<string | null>(null);
-  const [organization, setOrganization] = useState('');
-  const [position, setPosition] = useState('');
-  const [facebookLink, setFacebookLink] = useState('');
-  const [twitterLink, setTwitterLink] = useState('');
-  const [linkedinLink, setLinkedinLink] = useState('');
-
-  const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setAvatarName(file.name);
-    }
-  };
 
   const handleThumbnailUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -41,19 +28,11 @@ const CreatePost = () => {
     e.preventDefault();
     try {
       const newPost = {
-        firstname,
-        lastname,
         title,
         category,
         description,
         isFeatured,
-        avatarName,
         thumbnailName,
-        organization,
-        position,
-        facebookLink,
-        twitterLink,
-        linkedinLink,
       };
       await createPost(newPost);
       router.push('/');
@@ -63,19 +42,11 @@ const CreatePost = () => {
   };
 
   const handleReset = () => {
-    setFirstName('');
-    setLastName('');
     setTitle('');
     setCategory(categories[0].id);
     setDescription('');
     setIsFeatured(false);
-    setAvatarName(null);
     setThumbnailName(null);
-    setOrganization('');
-    setPosition('');
-    setFacebookLink('');
-    setTwitterLink('');
-    setLinkedinLink('');
   };
 
   return (
@@ -95,32 +66,17 @@ const CreatePost = () => {
             <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
               Create<span className="text-purple">&nbsp;Post</span>
             </h2>
-            <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Fill out all the provided input fields below to effectively help you create your post!</p>
+            <h3 className='text-[1.2rem] font-bold tracking-wider text-white text-center sm:text-[1.8rem]'>
+              {isSignedIn && user ? (
+                <>
+                  👋 Hey <span className='text-purple'>{user.firstName}</span>
+                </>
+              ) : (
+                '👋 Hey there!'
+              )}
+            </h3>
+            <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Fill out all the available input fields below to effectively help you create your post!</p>
             <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
-              <div className="mb-6 flex space-x-4">
-                <div className="w-1/2">
-                  <label htmlFor="firstname" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">First name</label>
-                  <input
-                    id="firstname"
-                    type="text"
-                    value={firstname}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                    required
-                  />
-                </div>
-                <div className="w-1/2">
-                  <label htmlFor="lastname" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Last name</label>
-                  <input
-                    id="lastname"
-                    type="text"
-                    value={lastname}
-                    onChange={(e) => setLastName(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                    required
-                  />
-                </div>
-              </div>
               <div className="mb-6">
                 <label htmlFor="title" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post title</label>
                 <input
@@ -147,60 +103,7 @@ const CreatePost = () => {
                   ))}
                 </select>
               </div>
-              <div className="mb-6 flex space-x-4">
-                <div className="w-1/2">
-                  <label htmlFor="organization" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Organization</label>
-                  <input
-                    id="organization"
-                    type="text"
-                    value={organization}
-                    onChange={(e) => setOrganization(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                    required
-                  />
-                </div>
-                <div className="w-1/2">
-                  <label htmlFor="role" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Position</label>
-                  <input
-                    id="position"
-                    type="text"
-                    value={position}
-                    onChange={(e) => setPosition(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="mb-6">
-                <label htmlFor="facebook" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Facebook Link</label>
-                <input
-                  id="facebook"
-                  type="url"
-                  value={facebookLink}
-                  onChange={(e) => setFacebookLink(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="twitter" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Twitter Link</label>
-                <input
-                  id="twitter"
-                  type="url"
-                  value={twitterLink}
-                  onChange={(e) => setTwitterLink(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                />
-              </div>
-              <div className="mb-6">
-                <label htmlFor="linkedin" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">LinkedIn Link</label>
-                <input
-                  id="linkedin"
-                  type="url"
-                  value={linkedinLink}
-                  onChange={(e) => setLinkedinLink(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                />
-              </div>
+              
               <div className="mb-6">
                 <label htmlFor="description" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post description</label>
                 <textarea
@@ -211,16 +114,7 @@ const CreatePost = () => {
                   rows={4}
                 />
               </div>
-              <div className="mb-6">
-                <label htmlFor="avatar" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Profile image</label>
-                <input
-                  id="avatar"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleAvatarUpload}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
-                />
-              </div>
+              
               <div className="mb-6">
                 <label htmlFor="thumbnail" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post image</label>
                 <input

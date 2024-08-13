@@ -29,7 +29,6 @@ const EditPost = ({ postId }: { postId: string }) => {
         setCategory(categories[0].id);
         setDescription('');
         setIsFeatured(false);
-        setAvatarName(null);
         setThumbnailName(null);
         setOrganization('');
         setPosition('');
@@ -49,7 +48,6 @@ const EditPost = ({ postId }: { postId: string }) => {
         category,
         description,
         isFeatured,
-        avatarName,
         thumbnailName,
         organization,
         position,
@@ -60,10 +58,6 @@ const EditPost = ({ postId }: { postId: string }) => {
       console.error('Failed to update post', error);
     }
   };
-
-  function handleAvatarUpload(event: ChangeEvent<HTMLInputElement>): void {
-    throw new Error('Function not implemented.');
-  }
 
   function handleThumbnailUpload(event: ChangeEvent<HTMLInputElement>): void {
     throw new Error('Function not implemented.');

@@ -63,13 +63,13 @@ const EditPost = ({ postId }: { postId: string }) => {
     }
   };
 
-  function handleAvatarUpload(event: ChangeEvent<HTMLInputElement>): void {
-    throw new Error('Function not implemented.');
-  }
-
-  function handleThumbnailUpload(event: ChangeEvent<HTMLInputElement>): void {
-    throw new Error('Function not implemented.');
-  }
+  
+  const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setProfileImage(file.name);
+    }
+  };
 
   return (
     <>
