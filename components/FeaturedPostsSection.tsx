@@ -49,7 +49,7 @@ const FeaturedPostsSection = () => {
   };
 
   return (
-    <section className="bg-black-200 lg:px-10 py-8 lg:py-12" id="featured-posts">
+    <section className="bg-black-200 py-8 lg:py-12" id="featured-posts">
       <div className="container mx-auto px-2">
         <h2 className="font-bold mb-6 lg:mb-[5rem] text-center text-[2.4rem] tracking-wider text-white lg:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
         <div className="flex flex-col md:flex-row items-center">
@@ -79,7 +79,7 @@ const FeaturedPostsSection = () => {
               </div>
             </div>
           </div>
-          <div className="md:ml-6 flex-1 overflow-y-auto lg:px-10 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
+          <div className="md:ml-6 flex-1 overflow-y-auto lg:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
             
             <h2 className="text-2xl font-bold text-white lg:mt-0 lg:mb-0">{featuredPost.title}</h2>
             <p className="mt-2 text-gray-400 text-sm leading-6">{featuredPost.description}</p>
@@ -100,7 +100,7 @@ const FeaturedPostsSection = () => {
             </div>
             <div className="mt-4 flex w-2xl gap-4 items-center p-1">
               <button
-                className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-400 border-1' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
+                className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-600 border-2' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
                 onClick={handleLike}
               >
                 <FaThumbsUp size={18} />

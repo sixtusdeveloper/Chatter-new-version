@@ -1,11 +1,14 @@
-
 'use client';
 
 import React, { useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import Image from 'next/image';
 import { FaFacebook, FaTwitter, FaLinkedin, FaThumbsUp, FaComment } from 'react-icons/fa';
+import CommentModal from './ui/CommentModal'; // Assuming it's in the same directory
 
+
+  // ... your existing featuredPost data
+  
 const featuredPost = {
   title: "Boost Your Conversion Rate",
   description: "Unlock the potential of your marketing strategy by improving your conversion rates. Discover actionable insights and proven techniques to enhance user engagement, drive higher sales, and turn visitors into loyal customers. Learn how to optimize every step of your customer journey with data-driven strategies.",
@@ -16,7 +19,7 @@ const featuredPost = {
     role: "Co-Founder / CTO",
     date: "2024-08-06", // Valid ISO date string
     datetime: "2024-08-06T12:00:00Z", // Valid ISO datetime string
-    organization: "(ElitesDev Ltd)",
+    organization: "ElitesDev Ltd",
   },
   category: {
     title: "Marketing",
@@ -25,11 +28,16 @@ const featuredPost = {
   features: ["Marketing", "Design", "Architecture", "Technology", "Development", "Business"],
 };
 
-const FeaturedPostsSection = () => {
+
+const SinglePostsSection = () => {
   const [comment, setComment] = useState('');
   const [likes, setLikes] = useState<number>(0);
   const [commentsCount, setCommentsCount] = useState<number>(0);
   const [liked, setLiked] = useState<boolean>(false);
+
+  const [isFollowing, setIsFollowing] = useState<boolean>(false);
+  const [isProcessing, setIsProcessing] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const handleLike = () => {
     if (liked) {
@@ -47,10 +55,25 @@ const FeaturedPostsSection = () => {
     }
   };
 
+  const handleFollow = async () => {
+    setIsProcessing(true);
+    await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate an async call with a 1.5-second delay
+    setIsProcessing(false);
+    setIsFollowing(!isFollowing);
+  };
+
+  const handleCommentIconClick = () => {
+    if (commentsCount > 0) {
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <section className="mb-26 bg-black-200 py-16" id="featured-posts">
       <div className="container mx-auto px-6 lg:px-10 mt-[6rem]">
-        <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">Detailed <span className="text-purple">Post</span></h2>
+        <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">
+          Detailed <span className="text-purple">Post</span>
+        </h2>
         <div className="flex flex-col md:flex-row items-center">
           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
             <Image src={featuredPost.imageUrl} alt={featuredPost.title} width={400} height={240} className="object-cover rounded-lg" />
@@ -78,7 +101,7 @@ const FeaturedPostsSection = () => {
               </div>
             </div>
           </div>
-          <div className="md:ml-6 flex-1 overflow-y-auto md:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
+          <div className="md:ml-6 flex-1 overflow-y-auto lg:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
             <h2 className="text-2xl font-bold text-white mt-4 mb-4 md:mt-0 md:mb-0">{featuredPost.title}</h2>
             <p className="mt-2 text-gray-400 text-sm leading-6">{featuredPost.description}</p>
             <div className="my-8 flex items-center">
@@ -86,25 +109,35 @@ const FeaturedPostsSection = () => {
               <div className="ml-4">
                 <p className="text-sm font-semibold text-white">{featuredPost.author.name}</p>
                 <span className='flex text-center py-1'>
-                  <p className="text-xs text-gray-200 mr-2">{featuredPost.author.role}</p>
-                  <p className="text-xs text-gray-300">({featuredPost.author.organization})</p>
+                  <p className="text-xs text-gray-200 mr-2">{featuredPost.author.role}&nbsp;at&nbsp;{featuredPost.author.organization}</p>
                 </span>
                 <span className='flex text-center'>
                   <p className="text-xs text-gray-500 mr-2">{format(parseISO(featuredPost.author.date), 'PP')}</p>
                   <p className="text-xs text-gray-500">{format(parseISO(featuredPost.author.datetime), 'p')}</p>
                 </span>
               </div>
+              <div className="ml-auto">
+                <button
+                  className={`py-1 px-4 rounded-full text-sm font-semibold ${isFollowing ? 'bg-gray-600 text-white' : 'bg-blue-600 text-white'} transition-all duration-200`}
+                  onClick={handleFollow}
+                  disabled={isProcessing}
+                >
+                  {isProcessing ? 'Following...' : isFollowing ? 'Unfollow' : 'Follow'}
+                </button>
+              </div>
             </div>
             <div className="mt-4 flex w-2xl gap-4 items-center p-1">
               <button
-                className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-400 border-1' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
+                className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-600 border-2' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
                 onClick={handleLike}
               >
                 <FaThumbsUp size={18} />
                 <span>{likes}</span>
               </button>
               <button
-                className="flex items-center gap-2 text-gray-400 hover:text-gray-300 bg-transparent rounded-full border border-gray-800 py-1 px-2"
+                className={`flex items-center gap-2 ${commentsCount > 0 ? 'text-gray-400 hover:text-gray-300' : 'text-gray-600 cursor-not-allowed'} bg-transparent rounded-full border border-gray-800 py-1 px-2`}
+                onClick={handleCommentIconClick}
+                disabled={commentsCount === 0}
               >
                 <FaComment size={18} />
                 <span>{commentsCount}</span>
@@ -127,13 +160,208 @@ const FeaturedPostsSection = () => {
           </div>
         </div>
       </div>
+
+      <CommentModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} commentsCount={commentsCount}>
+        <div className="space-y-4">
+          {/* Example Comment List */}
+          <div className="flex items-start">
+            <Image src={featuredPost.author.imageUrl} alt={featuredPost.author.name} width={32} height={32} className="rounded-full" />
+            <div className="ml-2">
+              <p className="text-sm text-gray-300">
+                <span className="font-semibold">{featuredPost.author.name}</span> {comment}
+              </p>
+              <p className="text-xs text-gray-500">{format(parseISO(featuredPost.author.date), 'PP')} at {format(parseISO(featuredPost.author.datetime), 'p')}</p>
+            </div>
+          </div>
+        </div>
+      </CommentModal>
     </section>
   );
 };
 
-export default FeaturedPostsSection;
+export default SinglePostsSection;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 'use client';
+
+// import React, { useState } from 'react';
+// import { format, parseISO } from 'date-fns';
+// import Image from 'next/image';
+// import { FaFacebook, FaTwitter, FaLinkedin, FaThumbsUp, FaComment } from 'react-icons/fa';
+
+// const featuredPost = {
+//   title: "Boost Your Conversion Rate",
+//   description: "Unlock the potential of your marketing strategy by improving your conversion rates. Discover actionable insights and proven techniques to enhance user engagement, drive higher sales, and turn visitors into loyal customers. Learn how to optimize every step of your customer journey with data-driven strategies.",
+//   imageUrl: "https://images.unsplash.com/photo-1506765515384-028b60a970df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VvfHx8fHx8fHwxNjg4MDQ4NzY5&ixlib=rb-1.2.1&q=80&w=1080",
+//   author: {
+//     name: "Boost Your Conversion Rate",
+//     imageUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
+//     role: "Co-Founder / CTO",
+//     date: "2024-08-06", // Valid ISO date string
+//     datetime: "2024-08-06T12:00:00Z", // Valid ISO datetime string
+//     organization: "ElitesDev Ltd",
+//   },
+//   category: {
+//     title: "Marketing",
+//     href: "#",
+//   },
+//   features: ["Marketing", "Design", "Architecture", "Technology", "Development", "Business"],
+// };
+
+// const SinglePostsSection = () => {
+//   const [comment, setComment] = useState('');
+//   const [likes, setLikes] = useState<number>(0);
+//   const [commentsCount, setCommentsCount] = useState<number>(0);
+//   const [liked, setLiked] = useState<boolean>(false);
+
+//   const [isFollowing, setIsFollowing] = useState<boolean>(false);
+//   const [isProcessing, setIsProcessing] = useState<boolean>(false);
+
+//   const handleLike = () => {
+//     if (liked) {
+//       setLikes(likes - 1);
+//     } else {
+//       setLikes(likes + 1);
+//     }
+//     setLiked(!liked);
+//   };
+
+//   const handleCommentSubmit = () => {
+//     if (comment.trim()) {
+//       setCommentsCount(commentsCount + 1);
+//       setComment('');
+//     }
+//   };
+
+//   const handleFollow = async () => {
+//     setIsProcessing(true);
+//     await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate an async call with a 1.5-second delay
+//     setIsProcessing(false);
+//     setIsFollowing(!isFollowing);
+
+//     // Here you would typically send the follow/unfollow action to your backend
+//     // Example:
+//     // if (isFollowing) {
+//     //   await unfollowUser(); // send unfollow request
+//     // } else {
+//     //   await followUser(); // send follow request
+//     // }
+
+//     // You could also notify the followed user here.
+//     // Example:
+//     // await notifyUserAboutFollow(); // notify the followed user
+//   };
+
+//   return (
+//     <section className="mb-26 bg-black-200 py-16" id="featured-posts">
+//       <div className="container mx-auto px-6 lg:px-10 mt-[6rem]">
+//         <h2 className="font-bold mb-6 md:mb-[5rem] text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem]">
+//           Detailed <span className="text-purple">Post</span>
+//         </h2>
+//         <div className="flex flex-col md:flex-row items-center">
+//           <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
+//             <Image src={featuredPost.imageUrl} alt={featuredPost.title} width={400} height={240} className="object-cover rounded-lg" />
+//             <div className="flex justify-between items-center mt-4 gap-8">
+//               <div className='flex space-x-4 bg-transparent rounded-full py-1 px-2 border border-gray-800'>
+//                 <FaFacebook className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
+//                 <FaTwitter className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
+//                 <FaLinkedin className="text-gray-300 hover:text-gray-200 cursor-pointer" size={20} />
+//               </div>
+//               <div className='flex items-center bg-transparent py-1 px-2 rounded-full border border-gray-800'>
+//                 <p className='text-sm text-gray-400'>{featuredPost.category.title}</p>
+//               </div>
+//             </div>
+//             <div className='mt-8 hidden md:block'>
+//               <h3 className="text-md font-semibold text-gray-300 mb-4">Featured Categories</h3>
+//               <div className="grid grid-cols-2 gap-4 mt-2">
+//                 {featuredPost.features.map((feature, index) => (
+//                   <div
+//                     key={index}
+//                     className="flex-none bg-gray-800 p-1 rounded-full border border-gray-700 text-center text-gray-300 text-sm overflow-hidden"
+//                   >
+//                     <span className="block truncate">{feature}</span>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//           <div className="md:ml-6 flex-1 overflow-y-auto lg:px-20 md:border-l md:border-gray-800 md:pl-6 custom-scrollbar">
+//             <h2 className="text-2xl font-bold text-white mt-4 mb-4 md:mt-0 md:mb-0">{featuredPost.title}</h2>
+//             <p className="mt-2 text-gray-400 text-sm leading-6">{featuredPost.description}</p>
+//             <div className="my-8 flex items-center">
+//               <Image src={featuredPost.author.imageUrl} alt={featuredPost.author.name} width={48} height={48} className="rounded-full" />
+//               <div className="ml-4">
+//                 <p className="text-sm font-semibold text-white">{featuredPost.author.name}</p>
+//                 <span className='flex text-center py-1'>
+//                   <p className="text-xs text-gray-200 mr-2">{featuredPost.author.role}&nbsp;at&nbsp;{featuredPost.author.organization}</p>
+//                 </span>
+//                 <span className='flex text-center'>
+//                   <p className="text-xs text-gray-500 mr-2">{format(parseISO(featuredPost.author.date), 'PP')}</p>
+//                   <p className="text-xs text-gray-500">{format(parseISO(featuredPost.author.datetime), 'p')}</p>
+//                 </span>
+//               </div>
+//               <div className="ml-auto">
+//                 <button
+//                   className={`py-1 px-4 rounded-full text-sm font-semibold ${isFollowing ? 'bg-gray-600 text-white' : 'bg-blue-600 text-white'} transition-all duration-200`}
+//                   onClick={handleFollow}
+//                   disabled={isProcessing}
+//                 >
+//                   {isProcessing ? 'Following...' : isFollowing ? 'Unfollow' : 'Follow'}
+//                 </button>
+//               </div>
+//             </div>
+//             <div className="mt-4 flex w-2xl gap-4 items-center p-1">
+//               <button
+//                 className={`flex items-center gap-2 ${liked ? 'text-blue-400 border-blue-600 border-2' : 'text-gray-400 border-gray-800'} bg-transparent rounded-full border py-1 px-4 transition-all duration-200`}
+//                 onClick={handleLike}
+//               >
+//                 <FaThumbsUp size={18} />
+//                 <span>{likes}</span>
+//               </button>
+//               <button
+//                 className="flex items-center gap-2 text-gray-400 hover:text-gray-300 bg-transparent rounded-full border border-gray-800 py-1 px-2"
+//               >
+//                 <FaComment size={18} />
+//                 <span>{commentsCount}</span>
+//               </button>
+//             </div>
+//             <div className="mt-8">
+//               <textarea
+//                 className="w-full h-24 p-2 rounded-md bg-gray-800 border border-gray-700 text-white resize-none"
+//                 placeholder="Add a comment..."
+//                 value={comment}
+//                 onChange={(e) => setComment(e.target.value)}
+//               />
+//               <button
+//                 className="mt-4 w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-500"
+//                 onClick={handleCommentSubmit}
+//               >
+//                 Post Comment
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default SinglePostsSection;
 
 
 

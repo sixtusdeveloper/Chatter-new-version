@@ -75,7 +75,7 @@ const CreatePost = () => {
                 '👋 Hey there!'
               )}
             </h3>
-            <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Fill out all the available input fields below to effectively help you create your post!</p>
+            <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Fill out all the available input fields below to effectively create your post!</p>
             <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
               <div className="mb-6">
                 <label htmlFor="title" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post title</label>

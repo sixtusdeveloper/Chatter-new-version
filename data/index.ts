@@ -31,7 +31,7 @@ export const singlePostNavigation = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/pages/blog' },
   { name: 'Users', href: '/pages/users' },
-  { name: 'Dashboard', href: '/pages/dashboard' },
+  { name: 'Dashboard', href: '/pages/admin-dashboard' },
 ];
 
 // =================== Blog Post Category Items ======================= //
@@ -141,7 +141,7 @@ export const posts: Post[] = [
   href: "/single-post/2",
   description: "Elevate your online presence with top-notch website design strategies. Explore modern design principles, user experience best practices, and innovative techniques to create visually stunning and highly functional websites. This post covers everything from aesthetic design trends to practical tips for enhancing usability.",
   date: "August 3rd, 2024",
-  datetime: "2024-08-03T14:50:39", // Updated to ISO format
+  datetime: "14:50:39", // Updated to ISO format
   category: { title: "Design", href: "/categories/design" },
   imageUrl: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDc0&ixlib=rb-1.2.1&q=80&w=400",
   fallbackImageUrl: "/socials03.jpg",
@@ -151,7 +151,7 @@ export const posts: Post[] = [
     position: "Lead Designer",
     role: "author",
     date: "August 3rd, 2024",
-    datetime: "2024-08-03T14:50:39", // Updated to ISO format
+    datetime: "14:50:39", // Updated to ISO format
     organization: "Pinace Ltd",
     href: "/authors/sandra-ankana", // Corrected href to match the author's name
     imageUrl: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
@@ -172,7 +172,7 @@ export const posts: Post[] = [
   href: "/single-post/3",
   description: "Enhance your website's visibility and attract more organic traffic with effective SEO strategies. This post provides a comprehensive guide on optimizing your content, improving search engine rankings, and leveraging analytics to measure your success. Discover practical tips and techniques to boost your SEO performance and achieve long-term growth.",
   date: "August 20th, 2024",
-  datetime: "2024-08-20T09:25:33", // Updated to ISO format
+  datetime: "09:25:33", // Updated to ISO format
   category: { title: "SEO", href: "/categories/seo" },
   imageUrl: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
   fallbackImageUrl: "/socials03.jpg",
@@ -182,7 +182,7 @@ export const posts: Post[] = [
     position: "SEO Specialist",
     role: "author",
     date: "August 20th, 2024",
-    datetime: "2024-08-20T09:25:33", // Updated to ISO format
+    datetime: "09:25:33", // Updated to ISO format
     organization: "Google",
     href: "/authors/stephanie-bruce", // Corrected href to match the author's name
     imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MXxyYW5kb218fHx8fHx8fHwxNjYxMzM3MDUw&ixlib=rb-1.2.1&q=80&w=400",
@@ -203,7 +203,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Medicine", href: "/categories/programming" },
   imageUrl: "/socials24.avif",
   fallbackImageUrl: "/socials24.avif",
@@ -213,7 +213,7 @@ export const posts: Post[] = [
     position: "Medical Doctor",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
@@ -234,7 +234,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Technology", href: "/categories/programming" },
   imageUrl: "/socials05.jpg",
   fallbackImageUrl: "/socials05.jpg",
@@ -244,7 +244,7 @@ export const posts: Post[] = [
     position: "Software Engineer",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "/socials02.jpg",
@@ -265,7 +265,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Technology", href: "/categories/programming" },
   imageUrl: "/team-member-1.jpg",
   fallbackImageUrl: "/socials04.jpg",
@@ -275,7 +275,7 @@ export const posts: Post[] = [
     position: "Database Administrator",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "https://images.unsplash.com/photo-1552058544-f2b08422138a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
@@ -296,7 +296,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Design", href: "/categories/programming" },
   imageUrl: "/socials12.avif",
   fallbackImageUrl: "/socials11.avif",
@@ -306,7 +306,7 @@ export const posts: Post[] = [
     position: "UI/UX Designer",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "/socials11.avif",
@@ -327,7 +327,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials10.avif",
   fallbackImageUrl: "/socials11.avif",
@@ -337,7 +337,7 @@ export const posts: Post[] = [
     position: "Fullstack Engineer",
     role: "author",
     date: "August 20th, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "/profile02.jpeg",
@@ -358,7 +358,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 24th, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials06.avif",
   fallbackImageUrl: "/socials07.avif",
@@ -368,7 +368,7 @@ export const posts: Post[] = [
     position: "Software Specialist",
     role: "author",
     date: "March 20th, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "/team-member-2.jpg",
@@ -389,7 +389,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Business", href: "/categories/programming" },
   imageUrl: "/socials08.avif",
   fallbackImageUrl: "/socials09.avif",
@@ -399,7 +399,7 @@ export const posts: Post[] = [
     position: "Hr Manager",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Crown Technologies",
     href: "/authors/paul-freedom",
     imageUrl: "/socials10.avif",
@@ -420,7 +420,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Technology", href: "/categories/programming" },
   imageUrl: "/socials14.avif",
   fallbackImageUrl: "/socials14.avif",
@@ -430,7 +430,7 @@ export const posts: Post[] = [
     position: "Data Analyst",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/john-smith",
     imageUrl: "/profile02.jpeg",
@@ -451,7 +451,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials15.avif",
   fallbackImageUrl: "/socials15.avif",
@@ -461,7 +461,7 @@ export const posts: Post[] = [
     position: "Technology Consultant",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/kenneth-johnson",
     imageUrl: "/team-memeber-3.jpg",
@@ -482,7 +482,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 24th, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials16.avif",
   fallbackImageUrl: "/socials17.avif",
@@ -492,7 +492,7 @@ export const posts: Post[] = [
     position: "Software Engineer",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/Fred-johnson",
     imageUrl: "/user01.jpg",
@@ -513,7 +513,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials17.avif",
   fallbackImageUrl: "/socials17.avif",
@@ -523,7 +523,7 @@ export const posts: Post[] = [
     position: "Software Engineer",
     role: "author",
     date: "August 22nd, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/Sixtus-chibueze",
     imageUrl: "/user03.jpg",
@@ -544,7 +544,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials18.avif",
   fallbackImageUrl: "/socials18.avif",
@@ -554,7 +554,7 @@ export const posts: Post[] = [
     position: "CEO",
     role: "author",
     date: "June 21st, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Gleam Technologies",
     href: "/authors/Benjamin-chukwuka",
     imageUrl: "/user03.jpg",
@@ -575,7 +575,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials23.avif",
   fallbackImageUrl: "/socials23.avif",
@@ -585,7 +585,7 @@ export const posts: Post[] = [
     position: "Cloud Engineer",
     role: "author",
     date: "Jan 21st, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Africa Tech",
     href: "/authors/Zara-smith",
     imageUrl: "/user02.jpg",
@@ -606,7 +606,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "Jan 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials13.avif",
   fallbackImageUrl: "/socials13.avif",
@@ -616,7 +616,7 @@ export const posts: Post[] = [
     position: "Frontend Engineer",
     role: "author",
     date: "June 21st, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Tech Innovators",
     href: "/authors/Franklin-chukwuka",
     imageUrl: "/user03.jpg",
@@ -637,7 +637,7 @@ export const posts: Post[] = [
   href: "/single-post/4",
   description: "Explore the best practices and resources for learning programming from scratch. This post covers essential programming languages, coding exercises, and tips for staying motivated while mastering the art of coding.",
   date: "August 22nd, 2024",
-  datetime: "2024-08-22T10:15:45", // Updated to ISO format
+  datetime: "10:15:45", // Updated to ISO format
   category: { title: "Programming", href: "/categories/programming" },
   imageUrl: "/socials21.avif",
   fallbackImageUrl: "/socials21.avif",
@@ -647,7 +647,7 @@ export const posts: Post[] = [
     position: "Sales Engineer",
     role: "author",
     date: "June 21st, 2024",
-    datetime: "2024-08-22T10:15:45", // Updated to ISO format
+    datetime: "10:15:45", // Updated to ISO format
     organization: "Drinks and Foods",
     href: "/authors/Kingston-aondofa",
     imageUrl: "/user01.jpg",

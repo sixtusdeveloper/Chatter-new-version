@@ -1,0 +1,38 @@
+.comment-container {
+    margin-bottom: 20px;
+  }
+  
+  .comment-header {
+    display: flex;
+    align-items: center;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .comment-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .reply-input {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .replies {
+    margin-left: 50px;
+    margin-top: 10px;
+  }
+  
+  .emoji-section span {
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  

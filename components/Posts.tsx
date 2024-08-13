@@ -9,9 +9,24 @@ import { Post } from '@/types';
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 
-const MAX_DESCRIPTION_LENGTH = 100;
 
+// Truncate the title to a maximum length
+const MAX_TITLE_LENGTH = 30;
+const truncateTitle = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+};
+
+// Truncate the description to a maximum length
+const MAX_DESCRIPTION_LENGTH = 100;
 const truncateDescription = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+};
+
+// Truncate the organization to a maximum length
+const MAX_ORGANIZATION_LENGTH = 15;
+const truncateOrganization = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
 };
@@ -80,7 +95,7 @@ const Posts = () => {
                       onClick={() => handlePostClick(post.id)}
                       className="hover:text-gray-400 cursor-pointer"
                     >
-                      {post.title}
+                      {truncateTitle(post.title, MAX_TITLE_LENGTH)}
                     </a>
                   </h3>
                   <p className="mt-2 text-sm leading-6 text-gray-300">
@@ -112,12 +127,10 @@ const Posts = () => {
                       </a>
                     </p>
                     <span className='flex text-center'>
-                      <p className="text-xs text-gray-200 mr-2">{post.author.position}</p>
-                      <p className="text-xs text-gray-300">({post.author.organization})</p>
+                      <p className="text-xs text-gray-200 py-1 mr-2">{post.author.position}&nbsp;at&nbsp;{truncateOrganization(post.author.organization, MAX_ORGANIZATION_LENGTH)}</p>
                     </span>
                     <span className='flex text-center'>
-                      <p className="text-xs text-gray-500 mr-2">{post.author.date}</p>
-                      <p className="text-xs text-gray-500">{post.author.datetime}</p>
+                      <p className="text-xs text-gray-500 mr-2">{post.author.date}&nbsp;{post.author.datetime}</p>
                     </span>
                   </div>
                 </div>

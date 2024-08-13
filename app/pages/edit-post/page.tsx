@@ -78,7 +78,7 @@ const EditPost = ({ postId }: { postId: string }) => {
           </div>
           <div className="container mx-auto px-6 z-10 relative">
             <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
-              Edit<span className="text-purple">&nbp;Post</span>
+              Edit<span className="text-purple">&nbsp;Post</span>
             </h2>
             <h3 className='text-[1.2rem] font-bold tracking-wider text-white text-center sm:text-[1.8rem]'>
               {isSignedIn && user ? (
