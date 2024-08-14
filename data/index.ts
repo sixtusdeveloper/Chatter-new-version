@@ -711,11 +711,29 @@ export const testimonials = [
   {
     quote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies.",
     fullQuote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies. We are very satisfied with the performance and efficiency it brings to our operations.",
-    name: "Ella Markson",
+    name: "James Markson",
     title: "Data Analyst at Amazon",
-    imageUrl: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VxfHx8fHx8fHwxNjkxNTA3MzU4&ixlib=rb-1.2.1&q=80&w=1080",
-    fallbackImageUrl: "/socials03.jpg",
+    imageUrl: "/user05.jpg",
+    fallbackImageUrl: "/user05.jpg",
     rating: 3,
+  },
+  {
+    quote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies.",
+    fullQuote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies. We are very satisfied with the performance and efficiency it brings to our operations.",
+    name: "Daniel Donald",
+    title: "Data Analyst at Amazon",
+    imageUrl: "/user01.jpg",
+    fallbackImageUrl: "/user01.jpg",
+    rating: 5,
+  },
+  {
+    quote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies.",
+    fullQuote: "Chatter has greatly improved our data analysis and decision-making processes. Ella's use of the platform has enabled her to extract valuable insights and collaborate more effectively. Chatter’s analytical tools and intuitive design have made a substantial difference in our data-driven strategies. We are very satisfied with the performance and efficiency it brings to our operations.",
+    name: "Andofa Jameson",
+    title:"S.Software specialist at Fintech",
+    imageUrl: "/profile02.jpeg",
+    fallbackImageUrl: "/profile02.jpeg",
+    rating: 4,
   },
 ];
 

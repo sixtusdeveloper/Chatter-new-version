@@ -5,6 +5,7 @@ import CompanyImgThree from '@/public/img/project-logo-3.png';
 import CompanyImgFour from '@/public/img/project-logo-4.png';
 import CompanyImgFive from '@/public/img/project-logo-5.png';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 const Collaboration = ({
@@ -69,10 +70,12 @@ const Collaboration = ({
                 <div className="hidden sm:mt-8 sm:flex sm:justify-center">
                     <div className="relative rounded-full px-4 my-1 text-sm leading-6 text-blue-300 ring-1 bg-black-300/10 hover:ring-gray-900/20">
                         Over 3500 companies use our tools to better their business.{' '}
-                        <a href="#" className="font-semibold text-purple">
-                            <span aria-hidden="true" className="absolute inset-0" />
-                            Read our customer stories <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        <Link href="/pages/customer-stories" legacyBehavior>
+                            <a href="#" className="font-semibold text-purple">
+                                <span aria-hidden="true" className="absolute inset-0" />
+                                Read our customer stories <span aria-hidden="true">&rarr;</span>
+                            </a>
+                        </Link>
                     </div>
                 </div>
             </div>

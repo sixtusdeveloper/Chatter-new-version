@@ -49,7 +49,7 @@ const FeaturedPostsSection = () => {
   };
 
   return (
-    <section className="bg-black-200 py-8 lg:py-12" id="featured-posts">
+    <section className="bg-black-200 py-8 lg:px-10" id="featured-posts">
       <div className="container mx-auto px-2">
         <h2 className="font-bold mb-6 lg:mb-[5rem] text-center text-[2.4rem] tracking-wider text-white lg:text-[2.7rem]">Featured <span className="text-purple">Post</span></h2>
         <div className="flex flex-col md:flex-row items-center">

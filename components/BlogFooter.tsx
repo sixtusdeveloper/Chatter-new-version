@@ -6,7 +6,7 @@ import { FaGithub, FaTwitter, FaInstagram, FaLinkedin, FaFacebook } from 'react-
 const Footer: React.FC = () => {
 
   return (
-    <footer className="bg-black-100 text-white border-t border-gray-800">
+    <footer className="bg-black-200 text-white border-t border-gray-800">
         
         <div className='flex justify-center items-center py-4 mt-2 md:mt-6'>
             <span className='w-full flex flex-col text-center text-white-100 text-sm p-2 tracking-wider'>

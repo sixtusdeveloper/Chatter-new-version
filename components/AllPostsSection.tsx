@@ -9,25 +9,35 @@ import { Post } from '@/types'; // Import the Post type
 import Link from "next/link";
 import SearchFilterSection from '@/components/SearchFilterSection';
 import PostNotFound from '@/components/PostNotFound'; // Import the PostNotFound component
+import { Share } from "next/font/google";
+import ShareButton from "@/components/SharedButton";
+import SaveButton from "@/components/SavedButton";
 
 const POSTS_PER_PAGE = 6; // Number of posts to show per page
 
+// Truncate the category title to a maximum length
+const MAX_CATEGORY_TITLE_LENGTH = 8; // Define the maximum length for the Categorytitle
+const truncateCategoryTitle = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+};
+
 // Truncate the title to a maximum length
-const MAX_TITLE_LENGTH = 30; // Define the maximum length for the description
+const MAX_TITLE_LENGTH = 30; // Define the maximum length for the title
 const truncateTitle = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
 };
 
 // Truncate the description to a maximum length
-const MAX_DESCRIPTION_LENGTH = 150; // Define the maximum length for the description
+const MAX_DESCRIPTION_LENGTH = 100; // Define the maximum length for the description
 const truncateDescription = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
 };
 
 // Truncate the organization to a maximum length
-const MAX_ORGANIZATION_LENGTH = 10; // Define the maximum length for the description
+const MAX_ORGANIZATION_LENGTH = 15; // Define the maximum length for the description
 const truncateOrganization = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return `${text.slice(0, maxLength)}...`;
@@ -97,16 +107,31 @@ const AllPostsSection = () => {
                     height={300}
                   />
                   <div className="pt-6">
-                    <div className="flex items-center gap-4 text-xs">
-                      <time dateTime={post.datetime} className="text-gray-200">
-                        {post.date}
-                      </time>
-                      <Link
-                        href={post.category.href}
-                        className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
-                      >
-                        {post.category.title}
-                      </Link>
+                    <div className="flex justify-betweeen gap-2 space-x-2 text-xs pb-2">
+                      <div className="flex justify-start gap-2">
+                        <span className="text-white-200 text-xs">                        
+                          <time dateTime={post.datetime} className="text-xs">
+                            {post.date}
+                          </time>
+                        </span>
+                        <span>
+                          <Link
+                            href={post.category.href}
+                            className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
+                          >
+                            {truncateCategoryTitle(post.category.title, MAX_CATEGORY_TITLE_LENGTH)}
+                          </Link>
+                        </span>
+                      </div>
+
+                      <div className="flex justify-end gap-2">
+                        <span>
+                          <ShareButton postId={post.id.toString()} />
+                        </span>
+                        <span>
+                          <SaveButton postId={post.id.toString()} />
+                        </span>
+                      </div>
                     </div>
                     <div className="mt-3">
                       <h3 className="text-lg font-semibold leading-6 text-gray-100">
@@ -124,7 +149,7 @@ const AllPostsSection = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="p-6 border-t border-gray-800 mt-auto">
+                  <div className="py-4 border-t border-gray-800 mt-auto">
                     <div className="flex items-center gap-4">
                       <ImageWithFallback
                         alt={post.author.name}
@@ -135,14 +160,13 @@ const AllPostsSection = () => {
                         height={40}
                       />
                       <div className="leading-6">
-                        <p className="font-semibold text-md text-gray-300">
+                        <p className="font-semibold text-sm text-gray-300">
                           <Link href={post.author.href} className="hover:text-gray-400">
                             {post.author.name}
                           </Link>
                         </p>
-                        <span className='flex text-center'>
-                          <p className="text-xs text-gray-200 py-1 mr-2">{post.author.position}&nbsp;at&nbsp;{truncateOrganization(post.author.organization, MAX_ORGANIZATION_LENGTH)}</p>
-                          
+                        <span className='flex text-center my-1'>
+                          <p className="text-xs text-gray-200 mr-2">{post.author.position}&nbsp;at&nbsp;{truncateOrganization(post.author.organization, MAX_ORGANIZATION_LENGTH)}</p>
                         </span>
                         <span className='flex text-center'>
                           <p className="text-xs text-gray-500 mr-2">{post.author.date}&nbsp;{post.author.datetime}</p>

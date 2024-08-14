@@ -85,5 +85,16 @@ export interface Post {
 
 
 
+// Testimonial types
+// types.ts
+export interface Testimonial {
+  rating: number;
+  quote: string;
+  name: string;
+  title: string;
+  imageUrl: string;
+  fallbackImageUrl: string;
+  fullQuote: string;
+}
 
 

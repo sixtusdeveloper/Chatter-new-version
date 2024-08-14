@@ -137,6 +137,13 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50% !important;
 }
 
+.customer-story-avatar{
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrollbar-hidden::-webkit-scrollbar {
   display: none;

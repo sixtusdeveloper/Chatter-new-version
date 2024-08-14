@@ -7,8 +7,17 @@ import { posts } from '@/data';
 import { GoArrowRight } from "react-icons/go";
 import { Post } from '@/types';
 import Link from "next/link";
+import ShareButton from "@/components/SharedButton";
+import SaveButton from "@/components/SavedButton";
 import { useRouter } from 'next/navigation';
 
+
+// Truncate the category title to a maximum length
+const MAX_CATEGORY_TITLE_LENGTH = 8; // Define the maximum length for the Categorytitle
+const truncateCategoryTitle = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text;
+  return `${text.slice(0, maxLength)}...`;
+};
 
 // Truncate the title to a maximum length
 const MAX_TITLE_LENGTH = 30;
@@ -78,17 +87,32 @@ const Posts = () => {
                 height={300}
               />
               <div className="pt-6">
-                <div className="flex items-center gap-4 text-xs">
-                  <time dateTime={post.datetime} className="text-gray-200">
-                    {post.date}
-                  </time>
-                  <a
-                    href={post.category.href}
-                    className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
-                  >
-                    {post.category.title}
-                  </a>
+              <div className="flex justify-betweeen gap-2 space-x-2 text-xs pb-2">
+                <div className="flex justify-start gap-2">
+                  <span className="text-white-200 text-xs">                        
+                    <time dateTime={post.datetime} className="text-xs">
+                      {post.date}
+                    </time>
+                  </span>
+                  <span>
+                    <Link
+                      href={post.category.href}
+                      className="rounded-full bg-gray-900 px-3 py-1.5 font-medium text-gray-400 hover:bg-gray-800"
+                    >
+                      {truncateCategoryTitle(post.category.title, MAX_CATEGORY_TITLE_LENGTH)}
+                    </Link>
+                  </span>
                 </div>
+
+                <div className="flex justify-end gap-2">
+                  <span>
+                    <ShareButton postId={post.id.toString()} />
+                  </span>
+                  <span>
+                    <SaveButton postId={post.id.toString()} />
+                  </span>
+                </div>
+              </div>
                 <div className="mt-3">
                   <h3 className="text-lg font-semibold leading-6 text-gray-100">
                     <a
@@ -110,7 +134,7 @@ const Posts = () => {
                   </p>
                 </div>
               </div>
-              <div className="p-6 border-t border-gray-800 mt-auto">
+              <div className="py-4 border-t border-gray-800 mt-auto">
                 <div className="flex items-center gap-4">
                   <ImageWithFallback
                     alt={post.author.name}
@@ -140,7 +164,7 @@ const Posts = () => {
         </div>
 
         {/* View more button */}
-        <div className="flex md:w-full relative flex-col justify-center items-center mt-4 md:mt-12">
+        <div className="flex md:w-full relative flex-col justify-center items-center mt-4 lg:mt-4 lg:mb-10">
           <Link href="/pages/blog" legacyBehavior>
             <a rel="noopener noreferrer" className="bg-purple-500 text-purple text-md py-2 px-4 rounded flex items-center justify-center gap-2 hover:bg-purple-600">
               View More <GoArrowRight className="text-purple forced-colors:purple text-lg" />
