@@ -8,7 +8,7 @@ import { fetchPostById, updatePost } from '@/utils/api'; // Implement these func
 import { useUser } from '@clerk/nextjs';
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
 
-const EditPost = ({ postId }: { postId: string }) => {
+const EditProfile = ({ postId }: { postId: string }) => {
   const { user, isSignedIn } = useUser();
   const router = useRouter();
 
@@ -74,8 +74,8 @@ const EditPost = ({ postId }: { postId: string }) => {
   return (
     <>
       <SignedIn>
-        <section className="min-h-screen bg-black-100 py-16">
-          <div>
+        <section className="min-h-screen bg-black-100 py-16 overflow-x-hidden">
+          <div className='relative'>
             <Spotlight className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen" fill="white" />
             <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="purple" />
             <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
@@ -84,7 +84,7 @@ const EditPost = ({ postId }: { postId: string }) => {
           <div className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] absolute flex items-center justify-center top-0 left-0">
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           </div>
-          <div className="container mx-auto px-6 z-10 relative">
+          <div className="container mx-auto px-0 lg:px-6 z-10 relative overflow-x-hidden">
             <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
               Edit<span className="text-purple">&nbsp;Profile</span>
             </h2>
@@ -98,7 +98,7 @@ const EditPost = ({ postId }: { postId: string }) => {
               )}
             </h3>
             <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Find below your Profile details, you've control over it!</p>
-            <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="bg-gray-900 p-4 lg:p-8 rounded-lg max-w-2xl mx-auto overflow-x-hidden">
                 <div className="mb-6 flex space-x-4">
                     <div className="w-1/2">
                         <label htmlFor="firstname" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">First name</label>
@@ -107,7 +107,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                             type="text"
                             value={firstname}
                             onChange={(e) => setFirstName(e.target.value)}
-                            className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                            className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                             required
                         />
                     </div>
@@ -118,7 +118,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                             type="text"
                             value={lastname}
                             onChange={(e) => setLastName(e.target.value)}
-                            className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                            className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                             required
                         />
                     </div>
@@ -132,7 +132,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                             type="text"
                             value={organization}
                             onChange={(e) => setOrganization(e.target.value)}
-                            className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                            className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                             required
                         />
                     </div>
@@ -143,7 +143,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                             type="text"
                             value={position}
                             onChange={(e) => setPosition(e.target.value)}
-                            className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                            className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                             required
                         />
                     </div>
@@ -154,7 +154,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                     id="biography"
                     value={biography}
                     onChange={(e) => setBiography(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                    className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                     rows={4}
                     />
                 </div>
@@ -165,7 +165,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                     type="url"
                     value={facebookLink}
                     onChange={(e) => setFacebookLink(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                    className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 />
                 </div>
                 <div className="mb-6">
@@ -175,7 +175,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                     type="url"
                     value={twitterLink}
                     onChange={(e) => setTwitterLink(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                    className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 />
                 </div>
                 <div className="mb-6">
@@ -185,7 +185,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                     type="url"
                     value={linkedinLink}
                     onChange={(e) => setLinkedinLink(e.target.value)}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                    className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 />
                 </div>
                 <div className="mb-6">
@@ -195,7 +195,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                     type="file"
                     accept="image/*"
                     onChange={handleAvatarUpload}
-                    className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                    className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                     />
                 </div>
 
@@ -225,4 +225,4 @@ const EditPost = ({ postId }: { postId: string }) => {
   );
 };
 
-export default EditPost;
+export default EditProfile;

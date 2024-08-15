@@ -1,3 +1,44 @@
+// import { getFirestore, doc, setDoc } from 'firebase/firestore';
+// import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// import { firebaseApp } from '@/firebase/firebaseConfig'; // Adjust path if necessary
+
+
+// const db = getFirestore(firebaseApp);
+// const storage = getStorage(firebaseApp);
+
+// export const updateUserProfile = async (userId: string, profileData: any) => {
+//   try {
+//     await setDoc(doc(db, 'users', userId), profileData, { merge: true });
+//     console.log('User profile updated successfully');
+//   } catch (error) {
+//     console.error('Error updating user profile: ', error);
+//   }
+// };
+
+// export const uploadProfileImage = async (file: File, userId: string) => {
+//   try {
+//     const storageRef = ref(storage, `profileImages/${userId}/${file.name}`);
+//     await uploadBytes(storageRef, file);
+//     const downloadURL = await getDownloadURL(storageRef);
+//     return downloadURL;
+//   } catch (error) {
+//     console.error('Error uploading profile image: ', error);
+//     throw error;
+//   }
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
 'use client';
 
 import axios from 'axios';

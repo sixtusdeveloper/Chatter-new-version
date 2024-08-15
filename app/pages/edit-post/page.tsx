@@ -66,8 +66,8 @@ const EditPost = ({ postId }: { postId: string }) => {
   return (
     <>
       <SignedIn>
-        <section className="min-h-screen bg-black-100 py-16">
-          <div>
+        <section className="min-h-screen bg-black-100 py-16 overflow-x-hidden">
+          <div className='relative'>
             <Spotlight className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen" fill="white" />
             <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="purple" />
             <Spotlight className="top-28 left-80 h-[80vh] w-[50vw]" fill="blue" />
@@ -76,7 +76,7 @@ const EditPost = ({ postId }: { postId: string }) => {
           <div className="h-screen w-full dark:bg-black-100 bg-white dark:bg-grid-white/[0.03] bg-grid-black/[0.2] absolute flex items-center justify-center top-0 left-0">
             <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black-100 bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
           </div>
-          <div className="container mx-auto px-6 z-10 relative">
+          <div className="container mx-auto px-0 lg:px-6 z-10 relative overflow-x-hidden">
             <h2 className="font-bold text-center text-[2.5rem] tracking-wider text-white sm:text-[2.7rem] mb-10">
               Edit<span className="text-purple">&nbsp;Post</span>
             </h2>
@@ -90,7 +90,7 @@ const EditPost = ({ postId }: { postId: string }) => {
               )}
             </h3>
             <p className='text-center text-[1rem] p-8 font-semibold tracking-wide'>Find below your Post details, you've control over it!</p>
-            <form onSubmit={handleSubmit} className="bg-gray-900 p-8 rounded-lg max-w-2xl mx-auto">
+            <form onSubmit={handleSubmit} className="bg-gray-900 p-8 lg:p-8 rounded-lg max-w-2xl mx-auto overflow-x-hidden">
               
               <div className="mb-6">
                 <label htmlFor="title" className="block text-gray-200 text-[0.88rem] tracking-wide mb-2">Post title</label>
@@ -99,7 +99,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                   type="text"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                   required
                 />
               </div>
@@ -109,7 +109,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                   id="category"
                   value={category}
                   onChange={(e) => setCategory(Number(e.target.value))}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 >
                   {categories.map((cat) => (
                     <option key={cat.id} value={cat.id}>
@@ -124,7 +124,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                   id="description"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                   rows={4}
                 />
               </div>
@@ -135,7 +135,7 @@ const EditPost = ({ postId }: { postId: string }) => {
                   type="file"
                   accept="image/*"
                   onChange={handleThumbnailUpload}
-                  className="w-full p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
+                  className="w-full p-2 lg:p-3 rounded-md bg-gray-800 text-gray-100 text-[0.88rem] tracking-wide border border-gray-800"
                 />
               </div>
               <div className="mb-6 flex items-center space-x-2">
