@@ -1,11 +1,15 @@
-import { TextGenerateEffect } from './ui/TextGenerateEffect';
+'use client';
+
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation'; // Import from next/navigation
+import { checkProfileStatus } from '@/utils/checkProfileStatus';
 import Image from 'next/image';
 
 const links = [
-  { name: "Open roles", href: "#" },
-  { name: "Contribute as a writer", href: "#" },
-  { name: "Our mission and values", href: "#" },
-  { name: "Meet our team", href: "#" },
+  { name: "Open roles", href: "/pages/roles-page" },
+  { name: "Contribute as a writer", href: "/pages/contributors" },
+  { name: "Our mission and values", href: "/pages/about/#mission" },
+  { name: "Meet our team", href: "/pages/about/#team" },
 ];
 
 const stats = [
@@ -15,7 +19,42 @@ const stats = [
   { name: "Community events", value: "20+" },
 ];
 
-export default function WorkWithUs() {
+interface WorkWithUsProps {
+  userId: string;
+  onLinkClick: (href: string) => void;
+}
+
+export default function WorkWithUs({ userId, onLinkClick }: WorkWithUsProps) {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!router) {
+      console.error('NextRouter is not available.');
+    }
+  }, [router]);
+
+  const handleLinkClick = async (href: string) => {
+    try {
+      const hasProfile = await checkProfileStatus(userId);
+      console.log(`User profile status: ${hasProfile}`);
+      
+      if (href === "/pages/contributors") {
+        if (hasProfile) {
+          console.log("Navigating to contributors page");
+          router.push(href);
+        } else {
+          console.log("Navigating to create profile page");
+          router.push('/pages/create-profile');
+        }
+      } else {
+        router.push(href);
+      }
+    } catch (error) {
+      console.error('Error checking profile status:', error);
+    }
+  };
+  
+
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 lg:px-10 py-5 lg:py-4 w-screen" id="Services">
       <div className="absolute inset-0 -z-10 w-screen h-full">
@@ -63,7 +102,14 @@ export default function WorkWithUs() {
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-purple sm:grid-cols-2 md:flex lg:gap-x-10">
             {links.map((link) => (
-              <a key={link.name} href={link.href}>
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => {
+                  // e.preventDefault();
+                  handleLinkClick(link.href);
+                }}
+              >
                 {link.name} <span aria-hidden="true">&rarr;</span>
               </a>
             ))}
@@ -81,3 +127,7 @@ export default function WorkWithUs() {
     </div>
   );
 }
+
+
+
+

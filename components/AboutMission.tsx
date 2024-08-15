@@ -3,8 +3,7 @@ import { Spotlight } from './ui/Spotlight';
 
 const AboutMission: React.FC = () => {
   return (
-    <section className="bg-black-200 py-12 relative overflow-hidden">
-      {/* Position Spotlight directly behind the text */}
+    <section className="bg-black-200 py-12 relative overflow-hidden" id="mission">
       <Spotlight className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 h-[40vh] w-[40vw]" fill="white" />
       <Spotlight className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-20 h-[50vh] w-[50vw]" fill="purple" />
       <Spotlight className="absolute top-0 left-1/2 transform -translate-x-1/2 translate-y-36 h-[50vh] w-[50vw]" fill="blue" />

@@ -5,7 +5,6 @@ import { Spotlight } from './ui/Spotlight';
 import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import { GoArrowRight } from 'react-icons/go';
 
-
 const Hero = () => {
   return (
     <div className="pb-2 pt-36" id="Hero">
@@ -24,7 +23,7 @@ const Hero = () => {
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-blue-300 ring-1 bg-black-300/10 hover:ring-gray-900/20">
               Your Haven for Text-Based Content.{' '}
-              <a href="#" className="font-semibold text-purple">
+              <a href="https://chattereditor.vercel.app/" className="font-semibold text-purple">
                 <span aria-hidden="true" className="absolute inset-0" />
                 Read more <span aria-hidden="true">&rarr;</span>
               </a>

@@ -1,4 +1,4 @@
-"use client";
+"use client"; // Ensure the component is a client-side component
 
 import React from "react";
 import NavBar from "@/components/NavBar";
@@ -14,9 +14,30 @@ import FAQFeedBack from "@/components/FAQFeedBack";
 import Footer from "@/components/Footer";
 import Script from '../../components/TawkToScript'; 
 
-import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/nextjs";
+import { SignedIn, SignedOut, RedirectToSignIn, useUser } from "@clerk/nextjs";
+import { useRouter } from 'next/navigation'; // Use useRouter from next/navigation
+import { checkProfileStatus } from "@/utils/checkProfileStatus";
 
 export default function Home() {
+  const { user } = useUser();
+  const userId = user?.id || "";
+  const router = useRouter(); // Use useRouter in Home from next/navigation
+
+  const handleLinkClick = async (href: string) => {
+    // Check if user has created their profile
+    const hasProfile = await checkProfileStatus(userId);
+
+    if (href === "/pages/contributors") {
+      if (hasProfile) {
+        router.push(href);
+      } else {
+        router.push('/pages/create-profile');
+      }
+    } else {
+      router.push(href);
+    }
+  };
+
   return (
     <>
       <SignedIn>
@@ -25,7 +46,7 @@ export default function Home() {
             <NavBar navigation={navigation} />
             <Hero />
             <Features />
-            <Services />
+            <Services onLinkClick={handleLinkClick} userId={userId} /> {/* Pass handleLinkClick */}
             <Posts />
             <Testimonials />
             <Collaborators />
