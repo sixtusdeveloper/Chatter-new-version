@@ -31,7 +31,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <h1 className='text-center text-[3rem] font-bolder tracking-wide text-white p-2'>Our ultimate Roles for <span className="text-purple">our users</span></h1>
+                <h1 className='text-center text-[3rem] font-bolder tracking-wide text-white p-2'>Our Ultimate Roles for <span className="text-purple">our users</span></h1>
                 <p className="text-center md:tracking-wider sm:tracking-wider my-4 text-[16px] md:text-[16px] lg:text-[16px] md:mb-8 mb-8">
                     Sorry there are no roles currently available. Please check back later.  
                </p>

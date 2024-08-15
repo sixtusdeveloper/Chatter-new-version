@@ -85,7 +85,7 @@ const CustomerStoriesPage: React.FC = () => {
                                 </a>
                             </p>
                             <div className="flex space-x-2 items-center">
-                                {Array.from({ length: 6 }, (_, index) => (
+                                {Array.from({ length: 5 }, (_, index) => (
                                     <FaStar
                                         key={index}
                                         size={18}

@@ -745,6 +745,10 @@ export const teamMembers = [
     role: 'Founder & CEO',
     description: 'Sixtus has over 8 years of experience in the tech industry. He started Chatter with the vision of creating a platform where people can share their thoughts and collaborate effectively. His leadership and innovative thinking have been pivotal in driving the company towards success.',
     imageUrl: '/team-member-1.jpg',
+    twitterUrl: 'https://x.com/develites01',
+    linkedinUrl: 'https://www.linkedin.com/in/sixtusushrey/',
+    githubUrl: 'https://github.com/sixtusdeveloper/',
+    email: 'sixtusushrey@gmail.com',
   },
   {
     id: 2,
@@ -752,6 +756,10 @@ export const teamMembers = [
     role: 'Chief Technology Officer',
     description: 'Calvin is a tech enthusiast with a knack for solving complex problems. She leads the technology team at Chatter, ensuring that the platform is scalable, secure, and user-friendly. Her expertise in software development and her passion for technology make her an invaluable asset to the company.',
     imageUrl: '/team-member-2.jpg',
+    twitterUrl: 'https://x.com/',
+    linkedinUrl: 'https://www.linkedin.com/',
+    githubUrl: 'https://github.com/',
+    email: 'develites1@gmail.com',
   },
   {
     id: 3,
@@ -759,6 +767,10 @@ export const teamMembers = [
     role: 'Head of Marketing',
     description: 'Ade brings a wealth of knowledge in digital marketing and brand management. She is responsible for the marketing strategies that have propelled Chatter into the limelight. Alice’s creativity and strategic thinking help in crafting campaigns that resonate with our audience.',
     imageUrl: '/team-member-3.jpg',
+    twitterUrl: 'https://x.com/',
+    linkedinUrl: 'https://www.linkedin.com/',
+    githubUrl: 'https://github.com/',
+    email: 'sixtusdev50@gmail.com',
   },
 ];
 

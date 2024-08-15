@@ -50,6 +50,12 @@ users (collection)
     │               ├── userId: "userId"
     │               ├── sharedAt: Timestamp.now()
     │               └── sharedWith: ["userId1", "userId2"]
+    ├── notifications (subcollection)
+    │   └── notificationId (document)
+    │       ├── message: "User John Doe posted a new article."
+    │       ├── type: "post"  // Type of notification (e.g., post, comment, follow, etc.)
+    │       ├── isRead: false  // Whether the notification has been read
+    │       ├── createdAt: Timestamp.now()  // When the notification was created
     └── contributors (subcollection)
         └── contributorId (document)
             ├── message: "I love using Chatter because..."

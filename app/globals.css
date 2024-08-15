@@ -201,3 +201,27 @@ h1, h2, h3, h4, h5, h6 {
 .custom-scrollbar::-webkit-scrollbar-track {
   background-color: #1f2937;
 }
+
+
+/* Global CSS or CSS Module */
+.notification-custom-scrollbar::-webkit-scrollbar {
+  width: 2px !important; /* Make the scroll-bar thinner */
+  /* max-width: 2px; */
+}
+
+.notification-custom-scrollbar::-webkit-scrollbar-track {
+  background: #2d3748; /* Gray background color */
+  border-radius: 10px; /* Rounded track */
+}
+
+.notification-custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #a0aec0; /* Lighter gray scroll thumb */
+  border-radius: 10px; /* Rounded scroll thumb */
+  border: 1px solid #2d3748; /* Border to add some spacing around the thumb */
+}
+
+/* For Firefox */
+.notification-custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a0aec0 #2d3748;
+}
