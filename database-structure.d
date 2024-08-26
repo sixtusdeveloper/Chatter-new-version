@@ -23,10 +23,10 @@ users (collection)
     │   └── postId1 (document)
     │       ├── title: "Understanding React Hooks"
     │       ├── category: 1
-    │       ├── description: "This post explains the use of React Hooks with examples..."
+    │       ├── description: 
     │       ├── isFeatured: false
     │       ├── thumbnailName: "thumbnail.jpg"
-    │       ├── thumbnailUrl: "https://firebasestorage.googleapis.com/v0/b/chatter-application-549bd.appspot.com/o/posts%2Fthumbnail.jpg?alt=media"
+    │       ├── thumbnailUrl: "https://googleapis"
     │       ├── authorId: "abc123"
     │       ├── createdAt: Timestamp.now()
     │       ├── likes (subcollection)

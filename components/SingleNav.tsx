@@ -44,7 +44,6 @@ export default function Navbar({
       <nav aria-label="Global" className="flex items-center justify-between p-4 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
             <Image
               alt="Chatter"
               src={LogoImg || "/img/logo-black.png"}
