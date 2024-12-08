@@ -152,12 +152,16 @@ export default function Navbar({
                 ))}
               </div>
               <div className="py-3">
-                <SignedOut>
-                  <SignInButton />
-                </SignedOut>
                 <SignedIn>
                   <UserButton />
                 </SignedIn>
+                <SignedOut>
+                  <SignInButton>
+                    <button className="text-base font-medium px-4 py-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 w-full">
+                      Sign In
+                    </button>
+                  </SignInButton>
+                </SignedOut>
               </div>
             </div>
           </div>
